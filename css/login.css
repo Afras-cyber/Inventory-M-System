@@ -1,0 +1,77 @@
+.login{
+    background-color: gray;
+    
+  
+ 
+    /*----------------*/
+
+width: 358px;
+height: 409px;
+
+top: 234px;
+
+background: #464646;
+border-radius: 42px;
+
+}
+#title-tag{
+    margin-top: 40px;
+   
+width: 87px;
+height: 59px;
+left: 677px;
+
+
+font-family: Jaldi;
+font-style: normal;
+font-weight: normal;
+font-size: 35px;
+line-height: 59px;
+
+color: #FFFFFF;
+
+}
+.input-tag{
+    margin-top:10px;
+    margin-bottom: 10px;
+   
+    padding-left:10px;
+    padding-right:10px;
+   
+    width: 80%;
+height: 37px;
+left: 579px;
+top: 349px;
+
+background: #C4C4C4;
+}
+.btn.btn-fm{
+    margin:10px;
+    width:40%;
+    height:40px;
+    background: #EE6342;
+    border-radius: 13.5px;
+    font-size:large;
+    font-weight: bold;  
+}
+.btn.btn-fm:hover{
+    color:blanchedalmond;
+}
+.forgot-pass{
+    text-decoration: none;
+    font-family: Gurajada;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 24px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+.forgot-pass:hover{
+    color: blanchedalmond;
+}
+form{
+    padding: 10px;
+}
