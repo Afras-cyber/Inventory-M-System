@@ -1,5 +1,19 @@
 SChedule
 1.interface
-    i.login page
-    2.Home page
-        https://www.figma.com/file/rJoZmdlnBqVKsCawojhcXy/Project-Naseef?node-id=14%3A21
+   
+    i.login page    -ok
+    2.Home page     - table (pending)        
+    3.Add Item      -ok
+    4.update/edit   -ok
+    5.customer      -ok
+    6.admin         -ok
+    7.order         -(pending.)
+    8.Nav Back      -(proccessing)
+    9.DateBase
+        i. 1st base -ok
+
+2.Reference or Notes
+
+    * Primery Background-color :   background: #F5F3F3;
+    * Secondary Background-color:  background: #C4C4C4;
+    * UI/UX link : https://www.figma.com/file/rJoZmdlnBqVKsCawojhcXy/Project-Naseef?node-id=14%3A21

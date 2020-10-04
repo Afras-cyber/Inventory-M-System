@@ -1,0 +1,61 @@
+.table1{
+    margin:0;
+    padding:0;
+    
+}
+.table2{
+    margin:0;
+    padding:0;
+   
+}
+.box2{
+    margin-left:2%;
+    padding:0;
+    
+}
+
+tbody{
+    min-width: 100%;
+    min-height: 80vh;
+    background-color: #C4C4C4;
+    display:inline-block;
+    border-left:0px solid black;
+    border-right:0px solid black;
+    border-radius: 1%;
+}
+.lefty{
+    border-left:0px solid black;
+    width:5%;
+}
+.namey{
+    width:17%
+}
+.rightx{
+    
+    width:35%;
+}
+.addy{
+    width:350px;
+}
+.righty{
+    border-right:0px solid black;
+    width:30%;
+}
+.emiy{
+    width:250px;
+}
+th{
+    border-bottom:1px solid black;
+    border-left:1px solid black;
+    border-right:1px solid black;
+   padding: 20px;
+}
+th,td{
+    width:  260px;
+    text-align: center;
+}
+td{
+    border:1px solid black;
+    width:10%;
+
+}

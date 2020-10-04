@@ -1,0 +1,35 @@
+.table1{
+    margin:0;
+    padding:0;
+    
+}
+.table2{
+    margin:0;
+    padding:0;
+   
+}
+.box2{
+    margin-left:8%;
+    padding:0;
+    
+}
+
+
+.emiy{
+    width:250px;
+}
+.forgot-password{
+   
+    
+    font-family: Jaldi;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 42px;
+    
+    color: #EE6342;
+      
+}
+.forgot-password-box{
+    margin-left:50px;
+}
