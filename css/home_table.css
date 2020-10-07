@@ -1,0 +1,32 @@
+.table-grid{
+    background-color: brown;
+    display:grid;
+    grid-gap:2px;
+    padding:10px;
+    grid-template-columns: auto auto;
+    width:100%;
+}
+.table-grid > div{
+    text-align: center;
+      
+  
+}
+.left-grid{
+    background-color: chartreuse;
+    width: 60%;
+    padding:0px;
+    margin:0px;
+}
+.right-grid{
+    background-color: blue;
+    width: 10%;
+}
+.check-left{
+    float: left;
+    display: inline-block;
+    
+}
+.check-right{
+    float: right;
+   
+}

@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/home_table.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
  
 </head>
@@ -59,47 +60,45 @@
             
         </form>
     </div>
-<p><br/></p><center>
-<div class="table1">
-<caption><h3>Sale Invoice</h3></caption>
-    <table>
-  
-         
-             <tr>
-            <th class="left-side "></th>
-            <th>Item No     </th>
-            <th>Item Name   </th>
-            <th>Qty         </th>
-            <th>Price (LKR) </th>
-            <th>Discount    </th>
-            <th class="right-side">value(LKR)  </th>
-            <td  class="right-side-btn rm-top"></td>
-              </tr>
-           
-            
-  
-                <tr>
-                    <td class="left-side">1       </td>
-                    <td>He34r   </td>
-                    <td>Janthi  </td>
-                    <td>5       </td>
-                    <td>2500LKR </td>
-                    <td>25%     </td>
-                    <td  class="right-side">3450    </td>
-                    <td  class="right-side-btn "><button class="rm-item"><i class="fas fa-minus-circle"></i></button></td>         
-                    
-                </tr>
-        
-    </table>
+<p><br/></p>
 
+<div class="container-fluid">
+        <center>
+        <div class="table1">
+        <caption><h3>Sale Invoice</h3></caption>
+            <table>         
+            <div class="row">
+                    <div class="col-8 check-left"> <tr>
+                        <th class="left-side"></th>
+                        <th>Item No     </th>
+                        <th>Item Name   </th>
+                        <th>Qty         </th>
+                        <th>Price (LKR) </th>
+                        <th>Discount    </th>
+                        <th class="right-side">value(LKR)  </th><!--
+                        <td  class="right-side-btn"></td>-->
+                          </tr>
+                    </div>
+                    <div class="col-1 check-right">dsafsafsdfs</div>
+            </div>
+                <div class="row">
+                     <div class="col-8 check-left">
+                             <tr>
+                                <td class="left-side">1       </td>
+                                <td>He34r   </td>
+                                <td>Janthi  </td>
+                                <td>5       </td>
+                                <td>2500LKR </td>
+                                <td>25%     </td>
+                                <td  class="right-side">3450    </td><!--
+                                <td  class="right-side-btn"><button class="rm-item"><i class="fas fa-minus-circle"></i></button></td>-->           
+                            </tr>
+                     </div>
+                     <div class="col-1 check-right"><button class="rm-item"><i class="fas fa-minus-circle"></i></button></div>
+                </div>
+            </table>
+            </div></center>
 </div>
- <p><br /></p>
- <div class="table2">
-    <h5>Total Price</h5>&nbsp;&nbsp;:&nbsp;&nbsp;
-    <h5 id="total-price">43567</h5>
- </div>
-
-</center>
 <p><br /></p>
 <div>
     
