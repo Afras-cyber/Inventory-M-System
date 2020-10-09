@@ -1,3 +1,25 @@
+<?php
+    include('inc/connection.php');
+
+if(isset($_POST["submit"])){
+        $no         =$_POST['item_no'];
+        $name       =$_POST['item_name'];
+        $category   =$_POST['category'];
+        $description=$_POST['description'];
+        $buy        =$_POST['buy_price'];
+        $sell       =$_POST['sale_price']; 
+
+    $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`, `description`, `buy`, `sell`) VALUES (NULL, '$no', '$name', '$category', '$description', '$buy', '$sell')";
+    $check_query=mysqli_query($connection,$sql);
+    if($check_query){
+        echo "<script>console.log('query succesfully inserted')</script>";
+    }
+    else{
+        echo "<script>console.log('query insert failed')</script>";
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,15 +49,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                <form action="">
+                <form action="item.php" method="post">
                     <div>
                         <div class="row">
                             <div class="col-3"><label class="label">Item No</label></div>
-                            <div class="col-3"><input type="text" class="input_invoice"></div>
+                            <div class="col-3"><input type="text" class="input_invoice" name="item_no"></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Item Name</label></div>
-                            <div class="col-3"><input type="text" class="input_invoice"></div>
+                            <div class="col-3"><input type="text" class="input_invoice" name="item_name"></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Category</label></div>
@@ -56,14 +78,14 @@
 </div><p><br/></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Buy Price</label></div>
-                            <div class="col-3"><input type="text" class="input_invoice"></div>
+                            <div class="col-3"><input type="text" class="input_invoice" name="buy_price"></div>
                         </div><p><br></p><div class="row">
                             <div class="col-3"><label class="label">Sale Price</label></div>
-                            <div class="col-3"><input type="text" class="input_invoice"></div>
+                            <div class="col-3"><input type="text" class="input_invoice" name="sale_price"></div>
                         </div><p><br></p>
                         <div class="set-right">
-                            <button class="btn btn-lg btn-submit ">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit ">Enter</button>
+                            <button class="btn btn-lg btn-submit"type="clear" name='clear'>Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-submit"type="submit" name="submit">Enter</button>
                         </div>
                     </div>
                 </form>

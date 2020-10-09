@@ -4,17 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
-    <!--implemetn external Links-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <!--JavaScript Links-->    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/home.css">
+    <!--CSS Links-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/test.css">
+
 </head>
 <body>
 <div class="container-fluid" >
+<div class="side-bar-icon">
+        <input type="checkbox" id="check">
+        <label for="check" id="sidebar-label">          
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+    </div>
+    
+    <div class="sidebar">      
+        <ul>
+            <li><a href="#">Admin</a></li>
+            <li><a href="#">Customer</a></li>
+            <li><a href="#">Supplier</a></li>
+            <li><a href="#">Items</a></li>
+            <li><a href="#">Transports</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Sales</a></li>
+            <li><a href="#">Purchase</a></li>
+            <li><a href="#">Returned Items</a></li>
+        </ul>
+    </div>
     <div class="row bannger-head">
         <div class="col-9 banner-tag">
             <div class="top-banner">
@@ -66,55 +88,52 @@
   
          
              <tr>
-            <th class="left-side "></th>
-            <th>Item No     </th>
-            <th>Item Name   </th>
-            <th>Qty         </th>
-            <th>Price (LKR) </th>
-            <th>Discount    </th>
-            <th class="right-side">value(LKR)  </th>
-            <td  class="right-side-btn rm-top"></td>
-              </tr>
-           
-            
-  
-                <tr>
-                    <td class="left-side">1       </td>
-                    <td>He34r   </td>
-                    <td>Janthi  </td>
-                    <td>5       </td>
-                    <td>2500LKR </td>
-                    <td>25%     </td>
-                    <td  class="right-side">3450    </td>
-                    <td  class="right-side-btn "><button class="rm-item"><i class="fas fa-minus-circle"></i></button></td>         
+                <th class="left-side "></th>
+                <th>Item No     </th>
+                <th>Item Name   </th>
+                <th>Qty         </th>
+                <th>Price (LKR) </th>
+                <th>Discount    </th>
+                <th class="right-side">value(LKR)  </th>
+                <td  class="right-side-btn rm-top"></td>
+            </tr>
+            <tr>
+                <td class="left-side">1       </td>
+                <td>He34r   </td>
+                <td>Janthi  </td>
+                <td>5       </td>
+                <td>2500LKR </td>
+                <td>25%     </td>
+                <td  class="right-side">3450    </td>
+                <td  class="right-side-btn "><button class="rm-item"><i class="fas fa-minus-circle"></i></button></td>         
                     
-                </tr>
+            </tr>
         
     </table>
 
 </div>
  <p><br /></p>
- <div class="table2">
-    <h5>Total Price</h5>&nbsp;&nbsp;:&nbsp;&nbsp;
-    <h5 id="total-price">43567</h5>
- </div>
+        <div class="table2">
+           <h5>Total Price</h5>&nbsp;&nbsp;:&nbsp;&nbsp;
+           <h5 id="total-price">43567</h5>
+        </div>
 
 </center>
 <p><br /></p>
 <div>
     
     <div class="container">
-    <h4>Transports(optional)</h4>
-    <p><br /></p>
-    <div class="row">
-        <div class="col-4"><label class="label">Transport Id :&nbsp;&nbsp;&nbsp;&nbsp;</label><input class="input_invoice" type="text"></div>
-        <div class="col-5"><label class="label">Transport Name :&nbsp;&nbsp;&nbsp;&nbsp;</label><input class="input_invoice" type="text"></div>
-    </div>
-    <p><br /></p>
-    <div class="set-right">
-        <button class="btn btn-lg btn-submit ">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-lg btn-submit ">Print</button>
-    </div>
+        <h4>Transports(optional)</h4>
+        <p><br /></p>
+            <div class="row">
+                <div class="col-4"><label class="label">Transport Id :&nbsp;&nbsp;&nbsp;&nbsp;</label><input class="input_invoice" type="text"></div>
+                <div class="col-5"><label class="label">Transport Name :&nbsp;&nbsp;&nbsp;&nbsp;</label><input class="input_invoice" type="text"></div>
+            </div>
+        <p><br /></p>
+            <div class="set-right">
+                <button class="btn btn-lg btn-submit ">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-lg btn-submit ">Print</button>
+            </div>
     </div>
     <p><br/></p>
     <p><br/></p>
