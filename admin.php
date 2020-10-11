@@ -1,11 +1,12 @@
 <?php
-include('inc/connection.php');
+    include('inc/connection.php');
 if (isset($_POST['submit'])) {
     echo "<script>console.log('Submit Button work')</script>";
-    $user_id    =$_POST['user'];
+    $user_id1    =$_POST['user'];
     $fullname   =$_POST['fullname'];
     $contect    =$_POST['contect'];
-    $email      =$_POST['email'];
+    $email1
+          =$_POST['email'];
     $pass       =$_POST['pass'];
     $pass2      =$_POST['pass2'];
 
@@ -13,9 +14,9 @@ if (isset($_POST['submit'])) {
         echo "<script>console.log('password not matched')</script>";
     } else {
         $sql="INSERT INTO `admin` (`admin_id`, `user_id`, `fullname`, `contect`, `email`, `password`) 
-                                 VALUES (NULL, '$user_id', '$fullname', '$contect', '$email', '$pass')";
+                                 VALUES (NULL, '$user_id1', '$fullname', '$contect', '$email1', '$pass')";
         
-        $query=mysqli_query($connection, $sql);
+        $query=mysqli_query($connection,$sql);
         if ($query) {
             echo "<script>console.log('Query Insert Successfully')</script>";
         } else {
@@ -29,20 +30,22 @@ if (isset($_POST['change'])) {
     $ch_email      =$_POST['ch_email'];
     $ch_pass       =$_POST['ch_pass'];
     $ch_pass2      =$_POST['ch_pass2'];
+    
 
     if ($ch_pass!==$ch_pass2) {//check password matching
         echo "<script>console.log('password not matched')</script>";
     } else {
-        $sql2="UPDATE `admin` SET `email`= {$ch_email},`password`={$ch_pass} WHERE `user_id`={$ch_user_id}";
-        
-        $query=mysqli_query($connection, $sql2);
-        $check_effect_row=mysqli_num_rows($query);//check How many Rows effected
-
-        if ($check_effect_row===1) {
-            echo "<script>console.log('Query update Successfully')</script>";
-        } else {
-            echo "<script>console.log('Query update failed')</script>";
+        $sql2="UPDATE `admin` SET `password`=$ch_pass WHERE user_id='2'";        
+        $query=mysqli_query($connection,$sql2);
+        if($query){
+          $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
+          if ($check_effect_row==1) {        
+          echo "<script>console.log('Check success ful')</script>";        
+        }else{
+          echo "<script>console.log('check failed')</script>";
         }
+      }
+      
     }
 }
 
@@ -90,6 +93,7 @@ if (isset($_POST['change'])) {
                   <div class="col-8">
                     <input
                       type="text"
+                      name="user"
                       class="input_invoice"
                       placeholder="USER002"
                       require
@@ -104,6 +108,7 @@ if (isset($_POST['change'])) {
                   <div class="col-8">
                     <input
                       type="text"
+                      name="fullname"
                       class="input_invoice"
                       placeholder="Sam J watson"
                       require
@@ -118,6 +123,7 @@ if (isset($_POST['change'])) {
                   <div class="col-8">
                     <input
                       type="number"
+                      name="contect"
                       class="input_invoice"
                       placeholder="07XXXXXXXX"
                       require
@@ -130,6 +136,7 @@ if (isset($_POST['change'])) {
                   <div class="col-3">
                     <input
                       type="email"
+                      name="email"
                       class="input_invoice emiy"
                       placeholder="abc@gmail.com"
                       require
@@ -142,6 +149,7 @@ if (isset($_POST['change'])) {
                   <div class="col-6">
                     <input
                       type="password"
+                      name="pass"
                       class="input_invoice"
                       placeholder="**********"
                       require
@@ -156,6 +164,7 @@ if (isset($_POST['change'])) {
                   <div class="col-6">
                     <input
                       type="password"
+                      name="pass2"
                       class="input_invoice"
                       placeholder="**********"
                       require
@@ -188,6 +197,7 @@ if (isset($_POST['change'])) {
                 <div class="col-8">
                   <input
                     type="text"
+                    name="ch_user"
                     class="input_invoice"
                     placeholder="USER002"
                     require
@@ -200,6 +210,7 @@ if (isset($_POST['change'])) {
                 <div class="col-3">
                   <input
                     type="email"
+                    name="ch_email"
                     class="input_invoice emiy"
                     placeholder="abc@gmail.com"
                     require
@@ -212,6 +223,7 @@ if (isset($_POST['change'])) {
                 <div class="col-6">
                   <input
                     type="password"
+                    name="ch_pass"
                     class="input_invoice"
                     placeholder="**********"
                     require
@@ -226,6 +238,7 @@ if (isset($_POST['change'])) {
                 <div class="col-6">
                   <input
                     type="password"
+                    name="ch_pass2"
                     class="input_invoice"
                     placeholder="**********"
                     require

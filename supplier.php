@@ -4,8 +4,8 @@
 
     //insert into database
     if(isset($_POST['submit'])){
-      $cust_uid      =   $_POST['cust_uid'];
-      $cust_name    =   $_POST['cust_name'];
+      $sup_uid      =   $_POST['sup_uid'];
+      $sup_name    =   $_POST['sup_name'];
       $contect_no   =   $_POST['contect'];
       $address1     =   $_POST['addrsss1'];
       $address2     =   $_POST['addrsss2'];
@@ -13,7 +13,8 @@
       echo "<script>console.log('$address1 + $address2 =$address')</script>";
       $email        =   $_POST['email'];
 
-      $sql="INSERT INTO `customer` (`cust_id`, `customer_uid`, `cust_name`, `contect_no`, `address`, `email`) VALUES (NULL, '$cust_uid', '$cust_name', '$contect_no', '$address', '$email')";
+      $sql="INSERT INTO `supplier` (`sup_id`, `sup_uid`, `sup_name`, `contect_no`, `address`, `email`) 
+      VALUES (NULL, '$sup_uid', '$sup_name', '$contect_no', '$address', '$email')";
       $check_query=mysqli_query($connection,$sql);
       if($check_query){
           echo "<script>console.log('query succesfully inserted')</script>";
@@ -30,7 +31,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer</title>  <!--implemetn external Links-->
+    <title>Supplier</title>  <!--implemetn external Links-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
@@ -46,7 +47,7 @@
         <div class="col-12 banner-tag">
             <div class="top-banner">
                 <img src="res/img/logo.png" alt="LOGO"  class="logo">
-                <h1 id="head-title">Customer</h1>                
+                <h1 id="head-title">Supplier</h1>                
             </div>            
          </div>    
     </div><br/>    
@@ -58,12 +59,12 @@
                 <form action="customer.php" method="POST">
                     <div>
                         <div class="row">
-                            <div class="col-3"><label class="label">Customer ID</label></div>
-                            <div class="col-8"><input type="text" name="cust_uid"class="input_invoice" placholder="CUST002" require /></div>
+                            <div class="col-3"><label class="label">Supplier ID</label></div>
+                            <div class="col-8"><input type="text" name="sup_uid"class="input_invoice" placholder="SUP002" require /></div>
                         </div><p><br></p>
                         <div class="row">
-                            <div class="col-3"><label class="label">Customer Name</label></div>
-                            <div class="col-8"><input type="text" name="cust_name"class="input_invoice" placeholder="Wall hugn Basin" require /></div>
+                            <div class="col-3"><label class="label">Supplier Name</label></div>
+                            <div class="col-8"><input type="text" name="sup_name"class="input_invoice" placeholder="Wall hugn Basin" require /></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Contect No</label></div>
@@ -102,41 +103,32 @@
            <div class="col-7 table1">
            <table>                   
                     <tr>
-                        <th class="lefty" >               </th>
-                        <th>Cust No         </th>
-                        <th>Cust Name       </th>
-                        <th>Contect No        </th>
-                        <th class="rightx">Address </th>
-                        
-                        <th class="righty rightx">Email    </th> 
+                        <th class="lefty" ></th>
+                        <th>Sup No</th>
+                        <th>Sup Name</th>
+                        <th>Contect No</th>
+                        <th class="rightx">Address</th>                        
+                        <th class="righty rightx">Email</th> 
                     </tr>
-                    <br>                    
-                    <!-- <tr>
-                        <td class="lefty" >1              </td>
-                        <td>cust0012</td>
-                        <td class="namey">sam      </td>
-                        <td>0712345678      </td>
-                        <td Class="rightx">No 21 Jaela       </td>
-                        <td class="righty rightx" >sam@mail.com </td> 
-                    </tr>   -->
+                    <br>
                     <?php
-                    $sql2="SELECT * FROM `customer`";
+                    $sql2="SELECT * FROM `supplier`";
                     $fetch_query=mysqli_query($connection, $sql2);
                     $count_rows=mysqli_num_rows($fetch_query);
                     if ($count_rows>0) {
                         $i=0;
                         while ($row=mysqli_fetch_assoc($fetch_query)) {
                             $i++;
-                            $sh_customer_uid    =$row['customer_uid'];
-                            $sh_cust_name       =$row['cust_name'];                      
+                            $sh_sup_uid    =$row['sup_uid'];
+                            $sh_sup_name       =$row['sup_name'];                      
                             $sh_contect_no      =$row['contect_no'];
                             $sh_address         =$row['address'];
                             $sh_email           =$row['email'];
                         
                             echo "<tr>
                             <td class='lefty'>{$i}</td>
-                            <td>{$sh_customer_uid}</td>
-                            <td class='namey'>{$sh_cust_name}</td>
+                            <td>{$sh_sup_uid}</td>
+                            <td class='namey'>{$sh_sup_name}</td>
                             <td>{$sh_contect_no}</td>
                             <td Class='rightx'>{$sh_address}</td>
                             <td class='righty rightx'>{$sh_email}</td> 

@@ -6,12 +6,11 @@ if (isset($_POST["submit"])) {
         $no         =$_POST['item_no'];
         $name       =$_POST['item_name'];
         $category   =$_POST['category'];
-        $description=$_POST['description'];
-        $buy        =$_POST['buy_price'];
-        $sell       =$_POST['sale_price'];
+        $qty        =$_POST['qty'];
+      
     
-        $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,  `description`, `buy`, `sell`) 
-        VALUES (NULL, '$no', '$name', '$category', '$description', '$buy', '$sell');";
+        $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`, `qty`) 
+        VALUES (NULL, '$no', '$name', '$category', '$qty')";
         $check_query=mysqli_query($connection, $sql);
             if ($check_query) {
                 echo "<script>console.log('query succesfully inserted')</script>";
@@ -20,13 +19,14 @@ if (isset($_POST["submit"])) {
             }
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Item Add /Edit / Delete</title>
+    <title>Item Stock Update</title>
     <!--implemetn external Links-->
     <link
       rel="stylesheet"
@@ -48,7 +48,7 @@ if (isset($_POST["submit"])) {
         <div class="col-12 banner-tag">
           <div class="top-banner">
             <img src="res/img/logo.png" alt="LOGO" class="logo" />
-            <h1 id="head-title">Add / Edit / Delete Item</h1>
+            <h1 id="head-title">Item Stock Update</h1>
           </div>
         </div>
       </div>
@@ -91,38 +91,10 @@ if (isset($_POST["submit"])) {
                 <p><br /></p>
                 <div class="row">
                   <div class="col-3">
-                    <label class="label">Description</label>
-                  </div>
-                  <div class="col-6">
-                    <textarea
-                      name="description"
-                      id=""
-                      cols="70"
-                      rows="15"
-                      class="textarea_invoice"
-                    ></textarea>
-                  </div>
-                </div>
-                <p><br /></p>
-                <div class="row">
-                  <div class="col-3">
-                    <label class="label">Buy Price</label>
+                    <label class="label">Quantity</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="buy_price" class="input_invoice" />
-                  </div>
-                </div>
-                <p><br /></p>
-                <div class="row">
-                  <div class="col-3">
-                    <label class="label">Sale Price</label>
-                  </div>
-                  <div class="col-3">
-                    <input
-                      type="text"
-                      name="sale_price"
-                      class="input_invoice"
-                    />
+                    <input type="number" name="qty" class="input_invoice" />
                   </div>
                 </div>
                 <p><br /></p>
@@ -135,11 +107,10 @@ if (isset($_POST["submit"])) {
                     type="submit"
                     name="submit"
                   >
-                    Add</button
-                  >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Edit</button
-                  >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Delete</button>
+                    Add
+                  </button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-lg btn-submit">Undo</button>
                 </div>
               </div>
             </form>
@@ -151,55 +122,39 @@ if (isset($_POST["submit"])) {
                 <th>Item No</th>
                 <th>Item Name</th>
                 <th>Category</th>
-                <th>Sale Price(LKR)</th>
-                <th>Buy Price(LKR)</th>
-                <th class="righty">Description</th>
+                <th class="righty">Quantity</th>
               </tr>
               <br />
-              <!-- <tr>
-                        <td class="lefty" >1              </td>
-                        <td>HGF0012        </td>
-                        <td>Art Basin      </td>
-                        <td>Basin Mixer       </td>
-                        <td>20000 </td>
-                        <td>10000  </td>
-                        <td class="righty">-    </td> 
-                    </tr>              -->
-                    <?php
-                    $sql2="SELECT * FROM `item`";
-                    $fetch_query=mysqli_query($connection, $sql2);
-                    $count_rows=mysqli_num_rows($fetch_query);
-                    if ($count_rows>0) {
-                        $i=0;
-                        while ($row=mysqli_fetch_assoc($fetch_query)) {
-                            $i++;
-                            $sh_itemNo      =$row['item_id'];
-                            $sh_itemName    =$row['item_name'];
-                            $sh_category    =$row['category'];
-                            $sh_description =$row['description'];
-                            $sh_buy         =$row['buy'];
-                            $sh_sell        =$row['sell'];
-                        
-                            echo "<tr>
-                            <td class='lefty'>{$i}</td>
-                            <td>{$sh_itemNo}</td>
-                            <td>{$sh_itemName}</td>
-                            <td>{$sh_category}</td>
-                            <td>{$sh_sell}</td>
-                            <td>{$sh_buy}</td>
-                            <td class='righty'>$sh_description</td>
-                            </tr>    ";
-                        }
+              <?php
+                $sql2="SELECT * FROM `item`";
+                $fetch_query=mysqli_query($connection, $sql2);
+                $count_rows=mysqli_num_rows($fetch_query);
+                if ($count_rows>0) {
+                    $i=0;
+                    while ($row=mysqli_fetch_assoc($fetch_query)) {
+                        $i++;
+                        $sh_itemNo      =$row['item_id'];
+                        $sh_itemName    =$row['item_name'];
+                        $sh_category    =$row['category'];                           
+                        $sh_qty        =$row['qty'];
+                    
+                        echo "<tr>
+                        <td class='lefty'>{$i}</td>
+                        <td>{$sh_itemNo}</td>
+                        <td>{$sh_itemName}</td>
+                        <td>{$sh_category}</td>                           
+                        <td class='righty'>$sh_qty</td>
+                        </tr>    ";
                     }
+                }
 
-                    ?>
+?>
             </table>
             <div></div>
           </div>
         </div>
       </div>
     </div>
-
     <p><br /></p>
     <p><br /></p>
   </body>
