@@ -2,20 +2,38 @@ SChedule
 1.interface
    
     i.login page    -ok
-    2.Home page     -table (pending)        
+    2.Home page     -ok     
     3.Add Item      -ok
     4.update/edit   -ok
     5.customer      -ok
     6.admin         -ok
     7.order         -(pending.)
-    8.Nav Back      -(proccessing)
+    8.Nav Back      -(pending)
     9.DateBase
         i. 1st base -ok
+    __________________________________________________________
+    new page
+         1. Sales Information
+         2. Order form
+         3. Purchase Information
+    *  how to make Pdf
+    *  Seach method -Still not find
+        
+    __________________________________________________________
+2.button
+    edit/Delete
+        1.item edit/delete page
+        2.Item Stock update
+        3.customer
+        4.admin
+        5.Supplier
+        6.Return Item
 
-2.Reference or Notes
+
+3.Reference or Notes
 
     * Primery Background-color      :  background: #F5F3F3;
     * Secondary Background-color    :  background: #C4C4C4;
-    * UI/UX link    : https://www.figma.com/file/rJoZmdlnBqVKsCawojhcXy/Project-Naseef?node-id=14%3A21
-    * FontAwasome   : <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    * UI/UX link     : https://www.figma.com/file/rJoZmdlnBqVKsCawojhcXy/Project-Naseef?node-id=14%3A21
+    * FontAwasome CDN: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     

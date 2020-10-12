@@ -58,12 +58,12 @@ if (isset($_POST["submit"])) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-5 table2">
-            <form action="update-Item.php" method="POST">
+            <form action="item.php" method="POST">
               <div>
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
-                    <input type="text" name="item_no" class="input_invoice" />
+                    <input type="text" name="item_no" class="input_invoice" onchange="search()"/>
                   </div>
                 </div>
                 <p><br /></p>
@@ -201,6 +201,8 @@ if (isset($_POST["submit"])) {
     </div>
 
     <p><br /></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/search.js"></script>
     <p><br /></p>
   </body>
 </html>
