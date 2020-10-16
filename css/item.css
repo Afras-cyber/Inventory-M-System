@@ -91,3 +91,25 @@ body {
     margin-left: 30%;
     display: flex;
 }
+ul{
+    background-color: #eee;    
+    list-style-type: none;
+   
+    cursor: pointer;
+}
+li{
+    padding: 12px;
+    background-color: #eee;
+    width: 230px;
+    height: 42px;
+  
+}
+li:hover{
+    border-color: rgb(168, 165, 165);
+    border:1px solid rgb(71, 70, 70);
+}
+#list_item{
+    position: absolute;
+    height:100%;
+    z-index: 1;   
+}

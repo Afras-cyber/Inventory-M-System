@@ -1,23 +1,61 @@
 <?php
     include('inc/connection.php');
-    echo "<script>console.log('before submit')</script>";
-if (isset($_POST["submit"])) {
-    echo "<script>console.log('after submit')</script>";
+   
+if (isset($_POST["submit2"])) {  
+
         $no         =$_POST['item_no'];
         $name       =$_POST['item_name'];
         $category   =$_POST['category'];
         $description=$_POST['description'];
         $buy        =$_POST['buy_price'];
         $sell       =$_POST['sale_price'];
+
+        $test=strval($no);
+        echo "<script>console.log('$no')</script>";
+       $seach_sql="SELECT * FROM `item` WHERE item_id ='$test'";
+       $check_query2=mysqli_query($connection,$seach_sql);
+       if($check_query2){  
+          if(mysqli_num_rows($check_query2)>0){
+            echo "<script>
+            $(document).ready(function(){
+              function myrequest() {
+                  var id = $('#item_id').val();
+                  $.ajax({
+                      method: 'POST',
+                      url: 'action.php',
+                      data: {
+                         item: id
+                      },
+                      success: function( responseObject ) {
+                          alert('success');
+                          console.log(responseObject);
+                        //  $('#item_name').val( 'posts' );
+                        //  $('#joindate').val('testing join date');
+                         
+                      },
+                      failure: function() {
+                          alert('fail');
+                      }
+                  });
+              }
+              myrequest();
+            })
+            </script>";
+           }
+          else{
+             $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,  `description`, `buy`, `sell`) 
+             VALUES (NULL, '$no', '$name', '$category', '$description', '$buy', '$sell');";
+             $check_query=mysqli_query($connection, $sql);
+                 if ($check_query) {
+                     echo "<script>console.log('query succesfully inserted')</script>";
+                 } else {
+                     echo "<script>console.log('query insert failed')</script>";
+                 }
+           }
+       }else{
+        echo "<script>console.log('find search query insert failed')</script>";
+       }  
     
-        $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,  `description`, `buy`, `sell`) 
-        VALUES (NULL, '$no', '$name', '$category', '$description', '$buy', '$sell');";
-        $check_query=mysqli_query($connection, $sql);
-            if ($check_query) {
-                echo "<script>console.log('query succesfully inserted')</script>";
-            } else {
-                echo "<script>console.log('query insert failed')</script>";
-            }
 }
 
 ?>
@@ -35,6 +73,7 @@ if (isset($_POST["submit"])) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src='js/find.js'></script>
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -63,7 +102,16 @@ if (isset($_POST["submit"])) {
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
-                    <input type="text" name="item_no" class="input_invoice" onchange="search()"/>
+                    <input type="text" name="item_no" class="input_invoice" id="item_id"/>
+                    <!-- <div id ='list_item'></div> -->
+                  </div>
+                </div>
+                <div class=row>
+                <div class="col-3">
+                   
+                  </div>
+                  <div class="col-3">
+                  <div id ='list_item'></div>
                   </div>
                 </div>
                 <p><br /></p>
@@ -72,7 +120,7 @@ if (isset($_POST["submit"])) {
                     <label class="label">Item Name</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="item_name" class="input_invoice" />
+                    <input type="text" name="item_name" id="item_name" class="input_invoice" />
                   </div>
                 </div>
                 <p><br /></p>
@@ -133,7 +181,8 @@ if (isset($_POST["submit"])) {
                   <button
                     class="btn btn-lg btn-submit"
                     type="submit"
-                    name="submit"
+                    name="submit2"
+                    id="add"
                   >
                     Add</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
