@@ -3,7 +3,7 @@
    
 if (isset($_POST["submit2"])) {  
 
-        $no         =$_POST['item_no'];
+        $no         =$_POST['item_id'];
         $name       =$_POST['item_name'];
         $category   =$_POST['category'];
         $description=$_POST['description'];
@@ -16,30 +16,7 @@ if (isset($_POST["submit2"])) {
        $check_query2=mysqli_query($connection,$seach_sql);
        if($check_query2){  
           if(mysqli_num_rows($check_query2)>0){
-            echo "<script>
-            $(document).ready(function(){
-              function myrequest() {
-                  var id = $('#item_id').val();
-                  $.ajax({
-                      method: 'POST',
-                      url: 'action.php',
-                      data: {
-                         item: id
-                      },
-                      success: function( responseObject ) {
-                          alert('success');
-                          console.log(responseObject);
-                        //  $('#item_name').val( 'posts' );
-                        //  $('#joindate').val('testing join date');
-                         
-                      },
-                      failure: function() {
-                          alert('fail');
-                      }
-                  });
-              }
-              myrequest();
-            })
+            echo "<script> Processing...           
             </script>";
            }
           else{
@@ -102,8 +79,10 @@ if (isset($_POST["submit2"])) {
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
-                    <input type="text" name="item_no" class="input_invoice" id="item_id"/>
+                    <input type="text" name="item_id" class="input_invoice" id="item_id"/>
                     <!-- <div id ='list_item'></div> -->
+                    <script>
+                  </script>
                   </div>
                 </div>
                 <div class=row>
@@ -144,7 +123,7 @@ if (isset($_POST["submit2"])) {
                   <div class="col-6">
                     <textarea
                       name="description"
-                      id=""
+                      id="desc"
                       cols="70"
                       rows="15"
                       class="textarea_invoice"
@@ -157,7 +136,7 @@ if (isset($_POST["submit2"])) {
                     <label class="label">Buy Price</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="buy_price" class="input_invoice" />
+                    <input type="text" name="buy_price" id="buy_me" class="input_invoice" />
                   </div>
                 </div>
                 <p><br /></p>
@@ -167,6 +146,7 @@ if (isset($_POST["submit2"])) {
                   </div>
                   <div class="col-3">
                     <input
+                      id="sell_me"
                       type="text"
                       name="sale_price"
                       class="input_invoice"
@@ -183,6 +163,7 @@ if (isset($_POST["submit2"])) {
                     type="submit"
                     name="submit2"
                     id="add"
+                    onclick="myrequest()"
                   >
                     Add</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
@@ -251,7 +232,7 @@ if (isset($_POST["submit2"])) {
 
     <p><br /></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/search.js"></script>
+    <script src="js/find.js"></script>
     <p><br /></p>
   </body>
 </html>

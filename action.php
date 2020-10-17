@@ -17,9 +17,12 @@
     }
     if(isset($_POST['item'])){   
         $_id=$_POST['item'];
-        $return = mysql_query("SELECT * FROM someTable WHERE idem_id = '$_id' LIMIT 1");
-        $rows = mysql_fetch_array($return);
-        $formattedData = json_encode($rows);
-        print $formattedData;
+        // $sql_check="SELECT * FROM someTable WHERE idem_id = '$_id' LIMIT 1";
+        $sql_check="SELECT * FROM item WHERE item_id = '$_id' LIMIT 1";
+        $return = mysqli_query($connection,$sql_check);
+        if($rows = mysqli_fetch_assoc($return)){
+            $formattedData = json_encode($rows);
+            print $formattedData;
+        }
     }
 ?>
