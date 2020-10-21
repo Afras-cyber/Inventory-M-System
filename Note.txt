@@ -13,7 +13,7 @@ SChedule
         i. 1st base -ok
     __________________________________________________________
     new page
-         1. Sales Information
+         1. Sales Information       -(Processing)
          2. Order form
          3. Purchase Information
     *  how to make Pdf
@@ -22,10 +22,9 @@ SChedule
     __________________________________________________________
 2.button
     edit/Delete
-        1.item edit/delete page -ok
-       
-        3.customer
-        4.admin
+        1.item edit/delete page -ok       
+        3.customer              -ok
+        4.admin                 
         5.Supplier
         6.Return Item
 
