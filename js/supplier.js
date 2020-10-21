@@ -66,8 +66,7 @@ $(document).ready(function(){
         var askDelet = confirm('Do you really want delete this Item ?');
         e.preventDefault(); 
         if(askDelet==true){
-        var sup_uid = $('#sup_uid').val();  
-        //     alert("true worked"+itme_id1);
+        var sup_uid = $('#sup_uid').val();           
             $.ajax({
                 method:'POST',
                 url:'action.php',

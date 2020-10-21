@@ -12,7 +12,7 @@
       $email        =   $_POST['email'];
 
       $sql="INSERT INTO `supplier` (`sup_id`, `sup_uid`, `sup_name`, `contect_no`, `address`,`address2`, `email`) 
-      VALUES (NULL, '$sup_uid', '$sup_name', '$contect_no', '$address','$address2', '$email')";
+      VALUES (NULL, '$sup_uid', '$sup_name', '$contect_no', '$address1','$address2', '$email')";
       $check_query=mysqli_query($connection,$sql);
       if($check_query){
           echo "<script>console.log('query succesfully inserted')</script>";
@@ -79,7 +79,7 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-5 table2">
-                <form action="customer.php" method="POST">
+                <form action="supplier.php" method="POST">
                     <div>
                         <div class="row">
                             <div class="col-3"><label class="label">Supplier ID</label></div>

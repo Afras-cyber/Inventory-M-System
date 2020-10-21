@@ -111,15 +111,16 @@ if(isset($_POST['supplier_id'])){
         print $formattedData1;
     }
 }
-if(isset($_POST['deleteSupplier'])){
-    $no21         =$_POST['deleteSupplier'];           
-    $delete1="DELETE FROM `supplier` WHERE sup_uid ='$no21'";
+if(isset($_POST['supplier_delete'])){
+    $no22         =$_POST['supplier_delete'];   
+        
+    $delete1="DELETE FROM `supplier` WHERE sup_uid ='$no22'";
     $result21=mysqli_query($connection,$delete1);
     if($result21){
       $check_effect_row=mysqli_affected_rows($connection);
       if ($check_effect_row==1) {        
+        echo "<script>alert('Supplier Details Deleted.')</script>";        
       echo "<script>console.log('Supplier details delete success ful')</script>"; 
-      echo "<script>alert('Supplier Details Deleted.')</script>";        
     }else{
       echo "<script>console.log('Deleted affected failed')</script>";
     }
