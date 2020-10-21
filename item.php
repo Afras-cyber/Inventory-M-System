@@ -11,7 +11,7 @@ if (isset($_POST["submit2"])) {
         $sell       =$_POST['sale_price'];
 
         $test=strval($no);
-        echo "<script>console.log('$no')</script>";
+        
        $seach_sql="SELECT * FROM `item` WHERE item_id ='$test'";
        $check_query2=mysqli_query($connection,$seach_sql);
        if($check_query2){  
@@ -34,6 +34,31 @@ if (isset($_POST["submit2"])) {
        }  
     
 }
+if(isset($_POST['edit9'])){
+  $no1         =$_POST['item_id'];
+  $name1       =$_POST['item_name'];
+  $category1   =$_POST['category'];
+  $description1=$_POST['description'];
+  $buy1        =$_POST['buy_price'];
+  $sell1       =$_POST['sale_price'];
+
+  
+
+  $update_query="UPDATE `item` SET `item_name`='$name1',
+  `category`='$category1',`description`='$description1',`buy`='$buy1',`sell`='$sell1' WHERE item_id ='$no1'";
+  $result2=mysqli_query($connection,$update_query);
+  if($result2){
+    $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
+    if ($check_effect_row==1) {        
+    echo "<script>console.log('update success ful')</script>";        
+  }else{
+    echo "<script>console.log('affected failed')</script>";
+  }
+}else{
+  echo "<script>console.log('update failed')</script>";
+}
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -86,9 +111,7 @@ if (isset($_POST["submit2"])) {
                   </div>
                 </div>
                 <div class=row>
-                <div class="col-3">
-                   
-                  </div>
+                <div class="col-3"></div>
                   <div class="col-3">
                   <div id ='list_item'></div>
                   </div>
@@ -158,18 +181,23 @@ if (isset($_POST["submit2"])) {
                   <button class="btn btn-lg btn-submit" type="rest">
                     Clear</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
+                          
                   <button
                     class="btn btn-lg btn-submit"
                     type="submit"
                     name="submit2"
                     id="add"
-                    onclick="myrequest()"
+                  
                   >
                     Add</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Edit</button
+                  <button class="btn btn-lg btn-submit" name="edit9">Edit</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Delete</button>
+                    <button class="btn btn-lg btn-submit" 
+                            id="delete9"  
+                                                  
+                            >Delete</button>
+                  
                 </div>
               </div>
             </form>
@@ -195,6 +223,7 @@ if (isset($_POST["submit2"])) {
                         <td>10000  </td>
                         <td class="righty">-    </td> 
                     </tr>              -->
+                    
                     <?php
                     $sql2="SELECT * FROM `item`";
                     $fetch_query=mysqli_query($connection, $sql2);

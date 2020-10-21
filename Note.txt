@@ -4,7 +4,7 @@ SChedule
     i.login page    -ok
     2.Home page     -ok     
     3.Add Item      -ok
-    4.update/edit   -ok
+   
     5.customer      -ok
     6.admin         -ok
     7.order         -(pending.)

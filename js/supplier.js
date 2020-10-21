@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
  
-    $('#item_id').keyup(function(){
+    $('#sup_uid').keyup(function(){
         var query = $(this).val();   
         
         if(query != ''){
@@ -9,33 +9,33 @@ $(document).ready(function(){
             $.ajax({
                 url:'action.php',
                 type:'POST',
-                data:{query:query},
+                data:{supplier_select:query},
                 success:function(data){
-                    $('#list_item').fadeIn();
-                    $('#list_item').html(data);
+                    $('#list_supplier').fadeIn();
+                    $('#list_supplier').html(data);
                 }
             })
         }else{
-                     $('#list_item').fadeOut();
-                     $('#list_item').html("");
+                     $('#list_supplier').fadeOut();
+                     $('#list_supplier').html("");
         }
     })
 
     $(document).on('click','li',function(){
-        $('#item_id').val($(this).text());
-        $('#list_item').fadeOut();
+        $('#sup_uid').val($(this).text());
+        $('#list_supplier').fadeOut();
         // 
-        console.log("Item Selected")
+        console.log("supplier Selected")
       
-         var id = $('#item_id').val();
+         var id = $('#sup_uid').val();
                 $.ajax({
                     method: 'POST',
                     url: 'action.php',
                     data: {
-                       item: id
+                       supplier_id: id
                     },
                     success: function( responseObject ) {
-                     console.log("Item recevied success")
+                     console.log("Supplier details recevied successfuly")
                        
                         // console.log(responseObject.item_name);
                         var obj = JSON.parse(responseObject);
@@ -43,15 +43,16 @@ $(document).ready(function(){
                    
                   
                       
-                      $('#item_name').val(obj.item_name);
-                      $('#cateory').val(obj.category);
-                      $('#desc').val(obj.description);
-                      $('#buy_me').val(obj.buy);
-                      $('#sell_me').val(obj.sell);
+                      $('#sup_name').val(obj.sup_name);//1
+                      $('#contect').val(obj.contect_no);//2
+                      $('#addrsss1').val(obj.address);//3
+                      $('#addrsss2').val(obj.address2);//4
+                      $('#email_id').val(obj.email);//5
+                     
                        
                     },
                     failure: function() {
-                       console.log('item Failed')
+                       console.log('Supplier details recevie Failed')
                     }
                 });       
            
@@ -61,18 +62,18 @@ $(document).ready(function(){
     })
    
     
-    $('#delete9').click(function(e){     
-        var askDelet = confirm('Do you really want delete this Item');
-        e.preventDefault();
+    $('#deleteSupplier').click(function(e){     
+        var askDelet = confirm('Do you really want delete this Item ?');
+        e.preventDefault(); 
         if(askDelet==true){
-        var itme_id1 = $('#item_id').val();  
+        var sup_uid = $('#sup_uid').val();  
         //     alert("true worked"+itme_id1);
             $.ajax({
                 method:'POST',
                 url:'action.php',
-                data:{delete_item:itme_id1},
+                data:{supplier_delete:sup_uid},
                 success: function( data ) {
-                    console.log("Item deleted success");
+                    console.log("supplier details deleted successfuly");
                     console.log(data);
                     location.reload(true);
 
@@ -81,11 +82,10 @@ $(document).ready(function(){
             })
         }
         else{
-            console.log('delete item cancel');
+            console.log('supplier details delete cancel');
         }      
         
     })
 })
-// 2VM2255 find.js:38 
-// {"item_qid":"12","item_id":"URL434234","item_name":"","category":"","qty":"0","description":"","buy":"0","sell":"0"}
+
 

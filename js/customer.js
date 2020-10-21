@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
  
-    $('#item_id').keyup(function(){
+    $('#cust_uid').keyup(function(){
         var query = $(this).val();   
         
         if(query != ''){
@@ -9,7 +9,7 @@ $(document).ready(function(){
             $.ajax({
                 url:'action.php',
                 type:'POST',
-                data:{query:query},
+                data:{cutomer_select:query},
                 success:function(data){
                     $('#list_item').fadeIn();
                     $('#list_item').html(data);
@@ -22,17 +22,17 @@ $(document).ready(function(){
     })
 
     $(document).on('click','li',function(){
-        $('#item_id').val($(this).text());
+        $('#cust_uid').val($(this).text());
         $('#list_item').fadeOut();
         // 
         console.log("Item Selected")
       
-         var id = $('#item_id').val();
+         var id = $('#cust_uid').val();
                 $.ajax({
                     method: 'POST',
                     url: 'action.php',
                     data: {
-                       item: id
+                       custom_id: id
                     },
                     success: function( responseObject ) {
                      console.log("Item recevied success")
@@ -43,15 +43,16 @@ $(document).ready(function(){
                    
                   
                       
-                      $('#item_name').val(obj.item_name);
-                      $('#cateory').val(obj.category);
-                      $('#desc').val(obj.description);
-                      $('#buy_me').val(obj.buy);
-                      $('#sell_me').val(obj.sell);
+                      $('#cust_name').val(obj.cust_name);
+                      $('#contect').val(obj.contect_no);
+                      $('#address1').val(obj.address);
+                      $('#address2').val(obj.address2);
+                      $('#email_id').val(obj.email);
+                     
                        
                     },
                     failure: function() {
-                       console.log('item Failed')
+                       console.log('Item Failed')
                     }
                 });       
            
@@ -61,16 +62,16 @@ $(document).ready(function(){
     })
    
     
-    $('#delete9').click(function(e){     
-        var askDelet = confirm('Do you really want delete this Item');
-        e.preventDefault();
+    $('#deleteCustomer').click(function(e){     
+        var askDelet = confirm('Do you really want delete this Item ?');
+        e.preventDefault(); 
         if(askDelet==true){
-        var itme_id1 = $('#item_id').val();  
+        var cust_uid = $('#cust_uid').val();  
         //     alert("true worked"+itme_id1);
             $.ajax({
                 method:'POST',
                 url:'action.php',
-                data:{delete_item:itme_id1},
+                data:{customer_delete:cust_uid},
                 success: function( data ) {
                     console.log("Item deleted success");
                     console.log(data);
@@ -81,7 +82,7 @@ $(document).ready(function(){
             })
         }
         else{
-            console.log('delete item cancel');
+            console.log('Delete item cancel');
         }      
         
     })

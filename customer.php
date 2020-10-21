@@ -9,11 +9,10 @@
       $contect_no   =   $_POST['contect'];
       $address1     =   $_POST['addrsss1'];
       $address2     =   $_POST['addrsss2'];
-      $address      =   "$address1+$address2";
-      echo "<script>console.log('$address1 + $address2 =$address')</script>";
       $email        =   $_POST['email'];
 
-      $sql="INSERT INTO `customer` (`cust_id`, `customer_uid`, `cust_name`, `contect_no`, `address`, `email`) VALUES (NULL, '$cust_uid', '$cust_name', '$contect_no', '$address', '$email')";
+      $sql="INSERT INTO `customer` (`cust_id`, `customer_uid`, `cust_name`, `contect_no`, `address`,`address2`, `email`) 
+      VALUES (NULL, '$cust_uid', '$cust_name', '$contect_no', '$address1','$address2', '$email')";
       $check_query=mysqli_query($connection,$sql);
       if($check_query){
           echo "<script>console.log('query succesfully inserted')</script>";
@@ -21,8 +20,34 @@
       else{
           echo "<script>console.log('query insert failed')</script>";
       }
-
     }
+    //-------------------------edit----------------------------//
+    if(isset($_POST['edit_cust'])){
+        $cust_uid_e      =   $_POST['cust_uid'];
+        $cust_name_e    =   $_POST['cust_name'];
+        $contect_no_e   =   $_POST['contect'];
+        $address1_e     =   $_POST['addrsss1'];
+        $address2_e     =   $_POST['addrsss2'];
+       
+        $email_e        =   $_POST['email'];
+      
+        $update_query="UPDATE `customer` SET `cust_name`='$cust_name_e',`contect_no`='$contect_no_e',`address`='$address1_e',
+        `address2`='$address2_e',`email`='$email_e' WHERE `customer_uid`='$cust_uid_e'";
+        $result2=mysqli_query($connection,$update_query);
+        if($result2){
+          $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
+          if ($check_effect_row==1) {        
+          echo "<script>console.log('update success ful')</script>";  
+          echo "<script>alert(`Customer  Details Updated`)</script>";      
+        }else{
+          echo "<script>console.log('affected failed')</script>";
+        }
+      }else{
+        echo "<script>console.log('update failed')</script>";
+      }
+      }
+      
+      
 
 ?>
 <!DOCTYPE html>
@@ -59,42 +84,49 @@
                     <div>
                         <div class="row">
                             <div class="col-3"><label class="label">Customer ID</label></div>
-                            <div class="col-8"><input type="text" name="cust_uid"class="input_invoice" placholder="CUST002" require /></div>
+                            <div class="col-8"><input type="text" id="cust_uid"name="cust_uid"class="input_invoice" placholder="CUST002" require /></div>
                         </div><p><br></p>
+                              <div class=row>
+                              <div class="col-3"></div>
+                              <div class="col-3">
+                              <div id ='list_item'></div>
+                              </div>
+                              </div>
+                              <p><br /></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Customer Name</label></div>
-                            <div class="col-8"><input type="text" name="cust_name"class="input_invoice" placeholder="Wall hugn Basin" require /></div>
+                            <div class="col-8"><input type="text" id="cust_name"name="cust_name"class="input_invoice" placeholder="Wall hugn Basin" require /></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Contect No</label></div>
-                            <div class="col-8"><input type="number"name="contect" class="input_invoice" placeholder="07XXXXXXXX" require />
+                            <div class="col-8"><input type="number"id="contect"name="contect" class="input_invoice" placeholder="07XXXXXXXX" require />
                             </div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Address</label></div>
                             <div class="col-6"> 
-                            <input type="text" class="input_invoice addy"name="addrsss1" placeholder="Line 01" require />
+                            <input type="text" id="address1"class="input_invoice addy"name="addrsss1" placeholder="Line 01" require />
                             </div>
                             
                         </div>
                         <div class="row">
                             <div class="col-3"></div>
                             <div class="col-6"> 
-                            <input type="text" class="input_invoice addy"name="addrsss2" placeholder="Line 02">
+                            <input type="text" id="address2"class="input_invoice addy"name="addrsss2" placeholder="Line 02">
                             </div>
                             
                         </div>
 <p><br/></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Email</label></div>
-                            <div class="col-3"><input type="email" class="input_invoice emiy"name="email" placeholder="abc@gmail.com" require /></div>
+                            <div class="col-3"><input id="email_id"type="email" class="input_invoice emiy"name="email" placeholder="abc@gmail.com" require /></div>
                         </div><p><br></p>
                   
                         <div class="set-right">
                             <button class="btn btn-lg btn-submit "type="rest">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button class="btn btn-lg btn-submit " type="submit" name="submit">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit ">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit ">Edit</button>
+                            <button class="btn btn-lg btn-submit " name="edit_cust">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-submit " id="deleteCustomer">Delete</button>
                         </div>
                     </div>
                 </form>
@@ -131,6 +163,8 @@
                             $sh_cust_name       =$row['cust_name'];                      
                             $sh_contect_no      =$row['contect_no'];
                             $sh_address         =$row['address'];
+                            $sh_address2        =$row['address2'];
+                            $sh_fulAddress      =$sh_address." ".$sh_address2;
                             $sh_email           =$row['email'];
                         
                             echo "<tr>
@@ -138,7 +172,7 @@
                             <td>{$sh_customer_uid}</td>
                             <td class='namey'>{$sh_cust_name}</td>
                             <td>{$sh_contect_no}</td>
-                            <td Class='rightx'>{$sh_address}</td>
+                            <td Class='rightx'>{$sh_fulAddress}</td>
                             <td class='righty rightx'>{$sh_email}</td> 
                         </tr>";
                         }
@@ -152,7 +186,8 @@
         </div>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/customer.js"></script>
 <p><br></p>
 <p><br></p>
 </body>

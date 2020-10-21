@@ -5,8 +5,7 @@ if (isset($_POST['submit'])) {
     $user_id1    =$_POST['user'];
     $fullname   =$_POST['fullname'];
     $contect    =$_POST['contect'];
-    $email1
-          =$_POST['email'];
+    $email1     =$_POST['email'];
     $pass       =$_POST['pass'];
     $pass2      =$_POST['pass2'];
 
