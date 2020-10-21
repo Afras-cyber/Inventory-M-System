@@ -22,15 +22,31 @@ SChedule
     __________________________________________________________
 2.button
     edit/Delete
-        1.item edit/delete page
-        2.Item Stock update
+        1.item edit/delete page -ok
+       
         3.customer
         4.admin
         5.Supplier
         6.Return Item
 
+3.UNDO
+     1.Item Stock update.php
+     2.return item.php
+4.Home 
+    1.Nav change into model
+5.admin
+    1. Forget password auto
+6.index
+    1.set login
+7.Validation
+    1.index.php
+    2.customer.php
+    3.item.php
+    4.itemStockUpdate.php
+    5.return_item.php
+    6.supplier.php
 
-3.Reference or Notes
+4.Reference or Notes
 
     * Primery Background-color      :  background: #F5F3F3;
     * Secondary Background-color    :  background: #C4C4C4;
