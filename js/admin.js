@@ -6,7 +6,7 @@ $(document).ready(function () {
         if ($('.adduser').val().trim() === "") {
             alert('its  empty')
         } else {
-            alert('its not empty')
+           // alert('its not empty')
             $.ajax({
                 method: 'POST',
                 url: 'Action/admin_action.php',
@@ -23,9 +23,9 @@ $(document).ready(function () {
         e.preventDefault();
 
         if ($('.checkUser').val().trim() === "") {
-            alert('its  empty')
+            alert('Input  empty')
         } else {
-            console.log('its not empty');
+           // console.log('its not empty');
             $.ajax({
                 method: 'POST',
                 url: 'Action/forgotpwd_action.php',

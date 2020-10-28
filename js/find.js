@@ -5,7 +5,7 @@ $(document).ready(function(){
         var query = $(this).val();   
         
         if(query != ''){
-           
+            $("#item_add").attr("disabled", false);
             $.ajax({
                 url:'Action/action.php',
                 type:'POST',
@@ -16,6 +16,7 @@ $(document).ready(function(){
                 }
             })
         }else{
+            $("#item_add").attr("disabled", false);
                      $('#list_item').fadeOut();
                      $('#list_item').html("");
         }
@@ -28,6 +29,7 @@ $(document).ready(function(){
         console.log("Item Selected")
       
          var id = $('#item_id').val();
+         $("#item_add").attr("disabled", true);
                 $.ajax({
                     method: 'POST',
                     url: 'Action/action.php',
@@ -52,6 +54,7 @@ $(document).ready(function(){
                     },
                     failure: function() {
                        console.log('item Failed')
+                       $("#item_add").attr("disabled", false);
                     }
                 });       
            
@@ -85,6 +88,45 @@ $(document).ready(function(){
         }      
         
     })
+    //---------------------------------------------------------------
+
+    $('#item_add').click(function (e) {
+        e.preventDefault();
+        console.log('add clicked')
+           
+        if ($('.itm_input').val().trim() === "") {
+            alert('its  empty')
+        } else {
+            alert('its not empty')
+            $.ajax({
+                method: 'POST',
+                url: 'Action/item_add.php',
+                data: $('#itm_frm').serialize(),
+                success: function (data) {                    
+                        $('#message1').html(data);                    
+                }
+            })
+        }
+    })//custEdit
+    $('#edit_itm').click(function (e) {
+        console.log('edit clicked')
+        e.preventDefault();
+        console.log('Edit button work')
+        if ($('.itm_input').val().trim() === "") {
+            alert('Please fill all the field')
+        } else {
+            console.log("Input fields not empty")
+            $.ajax({
+                method: 'POST',
+                url: 'Action/item_edit.php',
+                data: $('#itm_frm').serialize(),
+                success: function (data) {
+                        $('#message1').html(data);
+                }
+            })
+        }
+    })
+    
 })
 // 2VM2255 find.js:38 
 // {"item_qid":"12","item_id":"URL434234","item_name":"","category":"","qty":"0","description":"","buy":"0","sell":"0"}

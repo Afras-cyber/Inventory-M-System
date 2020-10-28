@@ -1,65 +1,6 @@
 <?php
     include('inc/connection.php');
    
-if (isset($_POST["submit2"])) {  
-
-        $no         =$_POST['item_id'];
-        $name       =$_POST['item_name'];
-        $category   =$_POST['category'];
-        $description=$_POST['description'];
-        $buy        =$_POST['buy_price'];
-        $sell       =$_POST['sale_price'];
-
-        $test=strval($no);
-        
-       $seach_sql="SELECT * FROM `item` WHERE item_id ='$test'";
-       $check_query2=mysqli_query($connection,$seach_sql);
-       if($check_query2){  
-          if(mysqli_num_rows($check_query2)>0){
-            echo "<script> Processing...           
-            </script>";
-           }
-          else{
-             $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,  `description`, `buy`, `sell`) 
-             VALUES (NULL, '$no', '$name', '$category', '$description', '$buy', '$sell');";
-             $check_query=mysqli_query($connection, $sql);
-                 if ($check_query) {
-                     echo "<script>console.log('query succesfully inserted')</script>";
-                 } else {
-                     echo "<script>console.log('query insert failed')</script>";
-                 }
-           }
-       }else{
-        echo "<script>console.log('find search query insert failed')</script>";
-       }  
-    
-}
-if(isset($_POST['edit9'])){
-  $no1         =$_POST['item_id'];
-  $name1       =$_POST['item_name'];
-  $category1   =$_POST['category'];
-  $description1=$_POST['description'];
-  $buy1        =$_POST['buy_price'];
-  $sell1       =$_POST['sale_price'];
-
-  
-
-  $update_query="UPDATE `item` SET `item_name`='$name1',
-  `category`='$category1',`description`='$description1',`buy`='$buy1',`sell`='$sell1' WHERE item_id ='$no1'";
-  $result2=mysqli_query($connection,$update_query);
-  if($result2){
-    $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
-    if ($check_effect_row==1) {        
-    echo "<script>console.log('update success ful')</script>";        
-  }else{
-    echo "<script>console.log('affected failed')</script>";
-  }
-}else{
-  echo "<script>console.log('update failed')</script>";
-}
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,12 +42,13 @@ if(isset($_POST['edit9'])){
       <div class="container-fluid">
         <div class="row">
           <div class="col-5 table2">
-            <form action="item.php" method="POST">
+            <form id="itm_frm" method="POST">
+            <div id="message1"></div>
               <div>
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
-                    <input autocomplete="off" type="text" name="item_id" class="input_invoice" id="item_id"/>
+                    <input autocomplete="off" type="text" name="item_id" class="input_invoice itm_input" id="item_id"/>
                     <!-- <div id ='list_item'></div> -->
                     <script>
                   </script>
@@ -124,14 +66,14 @@ if(isset($_POST['edit9'])){
                     <label class="label">Item Name</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="item_name" id="item_name" class="input_invoice" />
+                    <input type="text" name="item_name" id="item_name" class="input_invoice itm_input" />
                   </div>
                 </div>
                 <p><br /></p>
                 <div class="row">
                   <div class="col-3"><label class="label">Category</label></div>
                   <div class="col-3">
-                    <select id="cateory" name="category" class="input_invoice">
+                    <select id="cateory" name="category" class="input_invoice itm_input">
                       <option value="">--Select--</option>
                       <option value="volvo">Volvo</option>
                       <option value="saab">Saab</option>
@@ -151,7 +93,7 @@ if(isset($_POST['edit9'])){
                       id="desc"
                       cols="70"
                       rows="15"
-                      class="textarea_invoice"
+                      class="textarea_invoice itm_input"
                     ></textarea>
                   </div>
                 </div>
@@ -161,7 +103,7 @@ if(isset($_POST['edit9'])){
                     <label class="label">Buy Price</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="buy_price" id="buy_me" class="input_invoice" />
+                    <input type="text" name="buy_price" id="buy_me" class="input_invoice itm_input" />
                   </div>
                 </div>
                 <p><br /></p>
@@ -174,7 +116,7 @@ if(isset($_POST['edit9'])){
                       id="sell_me"
                       type="text"
                       name="sale_price"
-                      class="input_invoice"
+                      class="input_invoice itm_input"
                     />
                   </div>
                 </div>
@@ -188,12 +130,12 @@ if(isset($_POST['edit9'])){
                     class="btn btn-lg btn-submit"
                     type="submit"
                     name="submit2"
-                    id="add"
+                    id="item_add"
                   
                   >
                     Add</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit" name="edit9">Edit</button
+                  <button class="btn btn-lg btn-submit" id="edit_itm"name="edit9">Edit</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-lg btn-submit" 
                             id="delete9"  

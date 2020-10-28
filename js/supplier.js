@@ -5,7 +5,7 @@ $(document).ready(function(){
         var query = $(this).val();   
         
         if(query != ''){
-           
+            $("#sup_addBtn").attr("disabled", false);
             $.ajax({
                 url:'Action/action.php',
                 type:'POST',
@@ -16,6 +16,7 @@ $(document).ready(function(){
                 }
             })
         }else{
+            $("#sup_addBtn").attr("disabled", false);
                      $('#list_supplier').fadeOut();
                      $('#list_supplier').html("");
         }
@@ -28,6 +29,7 @@ $(document).ready(function(){
         console.log("supplier Selected")
       
          var id = $('#sup_uid').val();
+         $("#sup_addBtn").attr("disabled", true);
                 $.ajax({
                     method: 'POST',
                     url: 'Action/action.php',
@@ -53,6 +55,7 @@ $(document).ready(function(){
                     },
                     failure: function() {
                        console.log('Supplier details recevie Failed')
+                       $("#sup_addBtn").attr("disabled", false);
                     }
                 });       
            

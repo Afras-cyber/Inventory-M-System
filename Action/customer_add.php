@@ -43,23 +43,28 @@
 $sqlq= "SELECT customer_uid FROM customer WHERE customer_uid='$cust_uid' LIMIT 1";
 $check_queryq= mysqli_query($connection,$sqlq);
 $count_uid = mysqli_num_rows($check_queryq);
-if($count_uid>0){
-	$nameErr="This customer  already available You can only edit their profile";
-  echo "<script>$('#message1').html(`
-  <div class='alert alert-warning'>
-          <a herf=# class='close' data-dismiss='alert' aria-label='close'>
-          &times;</a><b>$nameErr</b>     </div>`)</script>;";
-	exit();
-}else{   
-       $sql="INSERT INTO `customer` (`cust_id`, `customer_uid`, `cust_name`, `contect_no`, `address`,`address2`, `email`) 
-       VALUES (NULL, '$cust_uid', '$cust_name', '$contect_no', '$address1','$address2', '$email')";
-       $check_query=mysqli_query($connection,$sql);
-       if($check_query){
-        echo "<script>window.location.reload()</script>";
+ if($check_queryq){
+   if($count_uid>0){
+    $nameErr="This customer  already available You can only edit their profile";
+    echo "<script>$('#message1').html(`
+    <div class='alert alert-warning'>
+            <a herf=# class='close' data-dismiss='alert' aria-label='close'>
+            &times;</a><b>$nameErr</b>     </div>`)</script>;";
+    exit();
+   }else{   
+         $sql="INSERT INTO `customer` (`cust_id`, `customer_uid`, `cust_name`, `contect_no`, `address`,`address2`, `email`) 
+         VALUES (NULL, '$cust_uid', '$cust_name', '$contect_no', '$address1','$address2', '$email')";
+         $check_query=mysqli_query($connection,$sql);
+         if($check_query){
+          echo "<script>window.location.reload()</script>";
+         }
+         else{
+             echo "<script>alert('query insert failed')</script>";
+         }
        }
-       else{
-           echo "<script>alert('query insert failed')</script>";
-       }
-     }
+   
+}else{
+  echo "<script>alert('query select failed')</script>";
+}
     
 ?>
