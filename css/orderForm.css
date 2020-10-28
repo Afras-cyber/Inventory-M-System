@@ -1,6 +1,8 @@
 body {
     background: #F5F3F3;
 
+}.container-fluid{
+    padding: 0;
 }
 
 .top-banner {

@@ -1,6 +1,6 @@
 <?php
    //------------------------------------Item----------------------------------------//
-    include('inc/connection.php');
+    include('../inc/connection.php');
     if(isset($_POST['query'])){
         $output='';
         $query="SELECT * FROM `item` WHERE item_id LIKE '%".$_POST["query"]."%'";
@@ -54,7 +54,7 @@
               $output1 .='<li>'.$row1['customer_uid'].'</li>';                
           }
       }else{
-          $output1 .='<li>No such Item</li>';  
+          $output1 .='<li>No such customer</li>';  
       }
       $output1 .='</ul>';
       echo $output1;  
@@ -128,4 +128,46 @@ if(isset($_POST['supplier_delete'])){
     echo "<script>console.log('delete failed')</script>";
   }
 } 
+//-------------------------------------------------------------------------//
+  
+if(isset($_POST['submit_category1']))  {
+  echo"<script>alert('if not working')</script>";
+  $newCatgory = $_POST['newCategory'];
+
+  $findCat="SELECT * FROM `category` WHERE `cat_name`='$newCatgory'";
+  $findQuery=mysqli_query($connection,$findCat);
+  if($findQuery){
+      $catFound=mysqli_num_rows($findQuery);
+      if($catFound===0){
+          $catInsetSql="INSERT INTO `category`(`cat_name`) VALUES ('$newCatgory')";
+          $insertCatQuery=mysqli_query($connection,$catInsetSql);
+          if($insertCatQuery){
+              echo"<script>console.log('new Category added ',$newCatgory)</script>";
+              echo"<script>document.getElementById('newCategory').value = ''</script>";
+              header("Location: home.php");
+exit();
+          }else{
+              echo"<script>console.log('Categroy Insert Failed')</script>";
+              header("Location: home.php");
+              exit();
+          }
+
+      }else{
+          echo"<script>document.getElementById('newCategory').value = ''</script>";
+          header("Location: home.php");
+          echo"<script>alert('Item already added')</script>";
+          exit();
+      }
+  }
+}  
+if(isset($_POST['rm_list'])){
+  $tid = $_POST['rm_list'];
+  echo"<script>console.log('item removed,$tid')</script>";    
+  $rmSql="DELETE FROM `invoice_hmT` WHERE `i_id`='$tid'";
+  $rmQuery=mysqli_query($connection,$rmSql);
+  if($rmQuery){
+      echo"<script>console.log('item removed')</script>";     
+}else{
+  echo"<script>console.log('item removed failed')</script>";     
+}}
 ?>

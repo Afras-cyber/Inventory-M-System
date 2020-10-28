@@ -65,11 +65,13 @@
 
 </head>
 <body>
-<div class="container-fluid" >
+<div class="container-fluid" style="padding:0;">
     <div class="row bannger-head">
         <div class="col-12 banner-tag">
             <div class="top-banner">
-                <img src="res/img/logo.png" alt="LOGO"  class="logo">
+            <a href="home.php">
+                    <img src="res/img/logo.png" alt="LOGO" class="logo" />
+                </a>
                 <h1 id="head-title">Supplier</h1>                
             </div>            
          </div>    
@@ -79,11 +81,12 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-5 table2">
-                <form action="supplier.php" method="POST">
+            <div id="message1"></div>
+                <form id='supplier_form' method="POST">
                     <div>
                         <div class="row">
                             <div class="col-3"><label class="label">Supplier ID</label></div>
-                            <div class="col-8"><input type="text" id="sup_uid"name="sup_uid"class="input_invoice" placholder="SUP002" require /></div>
+                            <div class="col-8"><input type="text" id="sup_uid"name="sup_uid"class="input_invoice sup_in" placholder="SUP002" require /></div>
                         </div><p><br></p>
                         <div class=row>
                               <div class="col-3"></div>
@@ -94,37 +97,37 @@
                               <p><br /></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Supplier Name</label></div>
-                            <div class="col-8"><input type="text" id="sup_name"name="sup_name"class="input_invoice" placeholder="Wall hugn Basin" require /></div>
+                            <div class="col-8"><input type="text" id="sup_name"name="sup_name"class="input_invoice sup_in" placeholder="Wall hugn Basin" require /></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Contect No</label></div>
-                            <div class="col-8"><input type="number"id="contect"name="contect" class="input_invoice" placeholder="07XXXXXXXX" require />
+                            <div class="col-8"><input type="number"id="contect"name="contect" class="input_invoice sup_in" placeholder="07XXXXXXXX" require />
                             </div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Address</label></div>
                             <div class="col-6"> 
-                            <input type="text" class="input_invoice addy"id="addrsss1"name="addrsss1" placeholder="Line 01" require />
+                            <input type="text" class="input_invoice addy sup_in"id="addrsss1"name="addrsss1" placeholder="Line 01" require />
                             </div>
                             
                         </div>
                         <div class="row">
                             <div class="col-3"></div>
                             <div class="col-6"> 
-                            <input type="text" class="input_invoice addy"id="addrsss2"name="addrsss2" placeholder="Line 02">
+                            <input type="text" class="input_invoice addy sup_in"id="addrsss2"name="addrsss2" placeholder="Line 02">
                             </div>
                             
                         </div>
 <p><br/></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Email</label></div>
-                            <div class="col-3"><input type="email" id="email_id"class="input_invoice emiy"name="email" placeholder="abc@gmail.com" require /></div>
+                            <div class="col-3"><input type="email" id="email_id"class="input_invoice emiy sup_in"name="email" placeholder="abc@gmail.com" require /></div>
                         </div><p><br></p>
                   
                         <div class="set-right">
                             <button class="btn btn-lg btn-submit "type="rest">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit " type="submit" name="submit">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit "type="submit" name="edit_supplier">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-submit " type="submit"id="sup_addBtn" name="submit">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-submit "type="submit" id="sup_editBtn"name="edit_supplier">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button class="btn btn-lg btn-submit "type="button" id="deleteSupplier">Delete</button>
                         </div>
                     </div>

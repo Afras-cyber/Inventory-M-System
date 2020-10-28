@@ -7,7 +7,7 @@ $(document).ready(function(){
         if(query != ''){
            
             $.ajax({
-                url:'action.php',
+                url:'Action/action.php',
                 type:'POST',
                 data:{query:query},
                 success:function(data){
@@ -30,7 +30,7 @@ $(document).ready(function(){
          var id = $('#item_id').val();
                 $.ajax({
                     method: 'POST',
-                    url: 'action.php',
+                    url: 'Action/action.php',
                     data: {
                        item: id
                     },
@@ -69,7 +69,7 @@ $(document).ready(function(){
         //     alert("true worked"+itme_id1);
             $.ajax({
                 method:'POST',
-                url:'action.php',
+                url:'Action/action.php',
                 data:{delete_item:itme_id1},
                 success: function( data ) {
                     console.log("Item deleted success");

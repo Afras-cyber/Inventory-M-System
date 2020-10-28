@@ -24,7 +24,7 @@ body {
 }
 
 .bannger-head {
-    height: 60vh;
+    height: fit-content;
     margin: 0;
 
 }
@@ -71,7 +71,9 @@ body {
 }
 
 .list-order {
+    width:100%;
     display: flex;
+    flex-wrap: wrap;
 
 }
 

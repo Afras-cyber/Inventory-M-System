@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/update.css" />
   </head>
   <body>
-    <div class="container-fluid">
+  <div class="container-fluid" style="padding:0;">
       <div class="row bannger-head">
         <div class="col-12 banner-tag">
           <div class="top-banner">

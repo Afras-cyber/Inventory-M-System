@@ -94,7 +94,8 @@ body {
 ul{
     background-color: #eee;    
     list-style-type: none;
-   
+    max-height: 60vh;
+    overflow-y: scroll;   
     cursor: pointer;
 }
 li{

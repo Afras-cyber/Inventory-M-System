@@ -7,7 +7,7 @@ $(document).ready(function(){
         if(query != ''){
            
             $.ajax({
-                url:'action.php',
+                url:'Action/action.php',
                 type:'POST',
                 data:{supplier_select:query},
                 success:function(data){
@@ -30,7 +30,7 @@ $(document).ready(function(){
          var id = $('#sup_uid').val();
                 $.ajax({
                     method: 'POST',
-                    url: 'action.php',
+                    url: 'Action/action.php',
                     data: {
                        supplier_id: id
                     },
@@ -59,8 +59,7 @@ $(document).ready(function(){
           
                
         // 
-    })
-   
+    })   
     
     $('#deleteSupplier').click(function(e){     
         var askDelet = confirm('Do you really want delete this Item ?');
@@ -69,21 +68,52 @@ $(document).ready(function(){
         var sup_uid = $('#sup_uid').val();           
             $.ajax({
                 method:'POST',
-                url:'action.php',
+                url:'Action/action.php',
                 data:{supplier_delete:sup_uid},
                 success: function( data ) {
                     console.log("supplier details deleted successfuly");
                     console.log(data);
                     location.reload(true);
-
-                }
-                
+                }                
             })
         }
         else{
             console.log('supplier details delete cancel');
-        }      
-        
+        }  
+    })
+    $('#sup_addBtn').click(function (e) {
+        e.preventDefault();
+        alert("add");            
+        if ($('.sup_in').val().trim() === "") {
+            alert('Please fill all the field')
+        } else {
+            alert('its not empty')
+            $.ajax({
+                method: 'POST',
+                url: 'Action/supplier_add_action.php',
+                data: $('#supplier_form').serialize(),
+                success: function (data) {                    
+                        $('#message1').html(data);                    
+                }
+            })
+        }
+    })//custEdit
+    $('#sup_editBtn').click(function (e) {      
+        e.preventDefault();
+        console.log('Edit button work')
+        if ($('.sup_in').val().trim() === "") {
+            alert('Please fill all the field')
+        } else {
+            console.log("Input fields not empty")
+            $.ajax({
+                method: 'POST',
+                url: 'Action/supplier_edit_action.php',
+                data: $('#supplier_form').serialize(),
+                success: function (data) {
+                        $('#message1').html(data);
+                }
+            })
+        }
     })
 })
 

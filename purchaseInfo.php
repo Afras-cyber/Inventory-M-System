@@ -15,11 +15,13 @@
 
 </head>
 <body>
-<div class="container-fluid" >
+<div class="container-fluid" style="padding:0;">
     <div class="row bannger-head">
         <div class="col-12 banner-tag">
             <div class="top-banner">
-                <img src="res/img/logo.png" alt="LOGO"  class="logo">
+            <a href="home.php">
+                    <img src="res/img/logo.png" alt="LOGO" class="logo" />
+                </a>
                 <h1 id="head-title">Purchase Information</h1>
             </div>
             </div> 

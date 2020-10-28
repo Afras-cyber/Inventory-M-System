@@ -84,11 +84,13 @@ if(isset($_POST['edit9'])){
     <link rel="stylesheet" href="css/update.css" />
   </head>
   <body>
-    <div class="container-fluid">
+  <div class="container-fluid" style="padding:0;">
       <div class="row bannger-head">
         <div class="col-12 banner-tag">
           <div class="top-banner">
-            <img src="res/img/logo.png" alt="LOGO" class="logo" />
+          <a href="home.php">
+                    <img src="res/img/logo.png" alt="LOGO" class="logo" />
+                </a>
             <h1 id="head-title">Add / Edit / Delete Item</h1>
           </div>
         </div>
@@ -104,7 +106,7 @@ if(isset($_POST['edit9'])){
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
-                    <input type="text" name="item_id" class="input_invoice" id="item_id"/>
+                    <input autocomplete="off" type="text" name="item_id" class="input_invoice" id="item_id"/>
                     <!-- <div id ='list_item'></div> -->
                     <script>
                   </script>
