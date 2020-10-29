@@ -148,10 +148,12 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-4"><label class="label">Custmer Name</label><input type="text" autocomplete="off"
+                    <div class="col-3"><label class="label">Custmer Name</label><input type="text" autocomplete="off"
                             class="input_invoice" name="cust_name"></div>
-                    <div class="col-4"><label class="label">Custmer ID</label><input type="text" class="input_invoice"
+                    <div class="col-3"><label class="label">Custmer ID</label><input type="text" class="input_invoice"
                             autocomplete="off" name="cust_id"></div>
+                     <div class="col-3"><label class="label">Discount</label><input type="number" class="input_invoice"
+                            autocomplete="off" name="discount"></div>
                     <div class="col-1"></div>
                     <div class="col-1"><input type="submit" id="enterToInvoice" class="btn btn-lg btn-submit"
                             value="Enter"></div>
