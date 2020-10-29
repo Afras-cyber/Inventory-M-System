@@ -1,40 +1,6 @@
 <?php
     include('inc/connection.php');
    
-if (isset($_POST["submit2"])) {  
-
-        $no         =$_POST['item_id'];
-        $name       =$_POST['item_name'];
-        $category   =$_POST['category'];
-        $description=$_POST['description'];
-        $buy        =$_POST['buy_price'];
-        $sell       =$_POST['sale_price'];
-
-        $test=strval($no);
-        echo "<script>console.log('$no')</script>";
-       $seach_sql="SELECT * FROM `item` WHERE item_id ='$test'";
-       $check_query2=mysqli_query($connection,$seach_sql);
-       if($check_query2){  
-          if(mysqli_num_rows($check_query2)>0){
-            echo "<script> Processing...           
-            </script>";
-           }
-          else{
-             $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,  `description`, `buy`, `sell`) 
-             VALUES (NULL, '$no', '$name', '$category', '$description', '$buy', '$sell');";
-             $check_query=mysqli_query($connection, $sql);
-                 if ($check_query) {
-                     echo "<script>console.log('query succesfully inserted')</script>";
-                 } else {
-                     echo "<script>console.log('query insert failed')</script>";
-                 }
-           }
-       }else{
-        echo "<script>console.log('find search query insert failed')</script>";
-       }  
-    
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,11 +25,13 @@ if (isset($_POST["submit2"])) {
     <link rel="stylesheet" href="css/update.css" />
   </head>
   <body>
-    <div class="container-fluid">
+  <div class="container-fluid" style="padding:0;">
       <div class="row bannger-head">
         <div class="col-12 banner-tag">
           <div class="top-banner">
-            <img src="res/img/logo.png" alt="LOGO" class="logo" />
+          <a href="home.php">
+                    <img src="res/img/logo.png" alt="LOGO" class="logo" />
+                </a>
             <h1 id="head-title">Add / Edit / Delete Item</h1>
           </div>
         </div>
@@ -74,12 +42,20 @@ if (isset($_POST["submit2"])) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-5 table2">
-            <form action="item.php" method="POST">
+            <form id="itm_frm" method="POST">
+            <div id="message1"></div>
               <div>
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
+<<<<<<< HEAD
                     <input type="text" name="item_id" class="input_invoice" id="item_id"/>
+=======
+                    <input autocomplete="off" type="text" name="item_id" class="input_invoice itm_input" id="item_id"/>
+                    <!-- <div id ='list_item'></div> -->
+                    <script>
+                  </script>
+>>>>>>> d06747fb74e36af775cb275174031350925ee268
                   </div>
                 </div>
                 <div class=row>
@@ -94,14 +70,14 @@ if (isset($_POST["submit2"])) {
                     <label class="label">Item Name</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="item_name" id="item_name" class="input_invoice" />
+                    <input type="text" name="item_name" id="item_name" class="input_invoice itm_input" />
                   </div>
                 </div>
                 <p><br /></p>
                 <div class="row">
                   <div class="col-3"><label class="label">Category</label></div>
                   <div class="col-3">
-                    <select id="cateory" name="category" class="input_invoice">
+                    <select id="cateory" name="category" class="input_invoice itm_input">
                       <option value="">--Select--</option>
                       <option value="volvo">Volvo</option>
                       <option value="saab">Saab</option>
@@ -121,7 +97,7 @@ if (isset($_POST["submit2"])) {
                       id="desc"
                       cols="70"
                       rows="15"
-                      class="textarea_invoice"
+                      class="textarea_invoice itm_input"
                     ></textarea>
                   </div>
                 </div>
@@ -131,7 +107,7 @@ if (isset($_POST["submit2"])) {
                     <label class="label">Buy Price</label>
                   </div>
                   <div class="col-3">
-                    <input type="text" name="buy_price" id="buy_me" class="input_invoice" />
+                    <input type="text" name="buy_price" id="buy_me" class="input_invoice itm_input" />
                   </div>
                 </div>
                 <p><br /></p>
@@ -144,7 +120,7 @@ if (isset($_POST["submit2"])) {
                       id="sell_me"
                       type="text"
                       name="sale_price"
-                      class="input_invoice"
+                      class="input_invoice itm_input"
                     />
                   </div>
                 </div>
@@ -153,10 +129,12 @@ if (isset($_POST["submit2"])) {
                   <button class="btn btn-lg btn-submit" type="rest">
                     Clear</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
+                          
                   <button
                     class="btn btn-lg btn-submit"
                     type="submit"
                     name="submit2"
+<<<<<<< HEAD
                     id="add"
                    
                   >
@@ -165,6 +143,20 @@ if (isset($_POST["submit2"])) {
                   <button class="btn btn-lg btn-submit" name="edit">Edit</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
                   <button class="btn btn-lg btn-submit" name="delete">Delete</button>
+=======
+                    id="item_add"
+                  
+                  >
+                    Add</button
+                  >&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-lg btn-submit" id="edit_itm"name="edit9">Edit</button
+                  >&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-lg btn-submit" 
+                            id="delete9"  
+                                                  
+                            >Delete</button>
+                  
+>>>>>>> d06747fb74e36af775cb275174031350925ee268
                 </div>
               </div>
             </form>
@@ -181,7 +173,21 @@ if (isset($_POST["submit2"])) {
                 <th class="righty">Description</th>
               </tr>
               <br />
+<<<<<<< HEAD
                 <?php
+=======
+              <!-- <tr>
+                        <td class="lefty" >1              </td>
+                        <td>HGF0012        </td>
+                        <td>Art Basin      </td>
+                        <td>Basin Mixer       </td>
+                        <td>20000 </td>
+                        <td>10000  </td>
+                        <td class="righty">-    </td> 
+                    </tr>              -->
+                    
+                    <?php
+>>>>>>> d06747fb74e36af775cb275174031350925ee268
                     $sql2="SELECT * FROM `item`";
                     $fetch_query=mysqli_query($connection, $sql2);
                     $count_rows=mysqli_num_rows($fetch_query);

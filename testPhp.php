@@ -1,26 +1,21 @@
+<?php
+ include('inc/connection.php');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testAutod Complete</title>
+$cust_uid_e      =   'cust004';
+$cust_name_e    =  'afras';
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-</head>
-<body>
-<div style="margin:30px;">
-
-    <h1>Hello world</h1>
-    <form action='testPhp.php'method="post">
-    <input class="input" type="text" id='input' name="input" />
-    <div id="countrylist"></div></br>
-    <button type="submit">Click Me</button>
-    </form>
-</div>
-<script src="js/test.js"></script>
-</body>
-
-</html>
+      $update_query="UPDATE `customer` SET `cust_name`='hey' WHERE `customer_uid`='cust004'";
+      $result2=mysqli_query($connection,$update_query);
+      if($result2){
+        $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
+        if ($check_effect_row==1) {        
+        echo "<script>console.log('update success ful')</script>";  
+        echo "<script>alert(`Customer  Details Updated`)</script>";      
+        }else{
+        echo "<script>console.log('affected failed')</script>";
+        }
+      }else{
+      echo "<script>console.log('update failed')</script>";
+      }
+?>

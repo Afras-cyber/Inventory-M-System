@@ -1,29 +1,52 @@
 <?php
-    //importing conection file
+    // //importing conection file
     include('inc/connection.php');
 
-    //insert into database
-    if(isset($_POST['submit'])){
-      $sup_uid      =   $_POST['sup_uid'];
-      $sup_name    =   $_POST['sup_name'];
-      $contect_no   =   $_POST['contect'];
-      $address1     =   $_POST['addrsss1'];
-      $address2     =   $_POST['addrsss2'];
-      $address      =   "$address1+$address2";
-      echo "<script>console.log('$address1 + $address2 =$address')</script>";
-      $email        =   $_POST['email'];
+    // //insert into database
+    // if(isset($_POST['submit'])){
+    //   $sup_uid      =   $_POST['sup_uid'];
+    //   $sup_name    =   $_POST['sup_name'];
+    //   $contect_no   =   $_POST['contect'];
+    //   $address1     =   $_POST['addrsss1'];
+    //   $address2     =   $_POST['addrsss2'];
+    //   $email        =   $_POST['email'];
 
-      $sql="INSERT INTO `supplier` (`sup_id`, `sup_uid`, `sup_name`, `contect_no`, `address`, `email`) 
-      VALUES (NULL, '$sup_uid', '$sup_name', '$contect_no', '$address', '$email')";
-      $check_query=mysqli_query($connection,$sql);
-      if($check_query){
-          echo "<script>console.log('query succesfully inserted')</script>";
-      }
-      else{
-          echo "<script>console.log('query insert failed')</script>";
-      }
+    //   $sql="INSERT INTO `supplier` (`sup_id`, `sup_uid`, `sup_name`, `contect_no`, `address`,`address2`, `email`) 
+    //   VALUES (NULL, '$sup_uid', '$sup_name', '$contect_no', '$address1','$address2', '$email')";
+    //   $check_query=mysqli_query($connection,$sql);
+    //   if($check_query){
+    //       echo "<script>console.log('query succesfully inserted')</script>";
+    //   }
+    //   else{
+    //       echo "<script>console.log('query insert failed')</script>";
+    //   }
 
-    }
+    // }
+    // //edit_supplier
+    // if(isset($_POST['edit_supplier'])){
+    //     $sup_uid      =   $_POST['sup_uid'];
+    //     $sup_name    =   $_POST['sup_name'];
+    //     $contect_no   =   $_POST['contect'];
+    //     $address1     =   $_POST['addrsss1'];
+    //     $address2     =   $_POST['addrsss2'];
+    //     $email        =   $_POST['email'];
+      
+    //     $update_query="UPDATE `supplier` SET `sup_name`='$sup_name',`contect_no`='$contect_no',
+    //     `address`='$address1',`address2`='$address2',`email`='$email' WHERE `sup_uid`='$sup_uid'";
+    //     $result2=mysqli_query($connection,$update_query);
+    //     if($result2){
+    //       $check_effect_row=mysqli_affected_rows($connection);
+    //       if ($check_effect_row==1) {        
+    //       echo "<script>console.log('update success ful')</script>";  
+    //       echo "<script>alert(`Customer  Details Updated`)</script>";      
+    //     }else{
+    //       echo "<script>console.log('affected failed')</script>";
+    //     }
+    //   }else{
+    //     echo "<script>console.log('update failed')</script>";
+    //   }
+    //   }
+      
 
 ?>
 <!DOCTYPE html>
@@ -42,11 +65,13 @@
 
 </head>
 <body>
-<div class="container-fluid" >
+<div class="container-fluid" style="padding:0;">
     <div class="row bannger-head">
         <div class="col-12 banner-tag">
             <div class="top-banner">
-                <img src="res/img/logo.png" alt="LOGO"  class="logo">
+            <a href="home.php">
+                    <img src="res/img/logo.png" alt="LOGO" class="logo" />
+                </a>
                 <h1 id="head-title">Supplier</h1>                
             </div>            
          </div>    
@@ -56,46 +81,55 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-5 table2">
-                <form action="customer.php" method="POST">
+            <div id="message1"></div>
+                <form id='supplier_form' method="POST">
                     <div>
                         <div class="row">
                             <div class="col-3"><label class="label">Supplier ID</label></div>
-                            <div class="col-8"><input type="text" name="sup_uid"class="input_invoice" placholder="SUP002" require /></div>
+                            <div class="col-8"><input type="text" autocomplete='off'id="sup_uid"name="sup_uid"class="input_invoice sup_in" placholder="SUP002" require /></div>
                         </div><p><br></p>
+                        <div class=row>
+                              <div class="col-3"></div>
+                              <div class="col-5">
+                              <div id ='list_supplier'></div>
+                            
+                              </div>
+                              </div>
+                              <p><br /></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Supplier Name</label></div>
-                            <div class="col-8"><input type="text" name="sup_name"class="input_invoice" placeholder="Wall hugn Basin" require /></div>
+                            <div class="col-8"><input type="text" id="sup_name"name="sup_name"class="input_invoice sup_in" placeholder="Wall hugn Basin" require /></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Contect No</label></div>
-                            <div class="col-8"><input type="number"name="contect" class="input_invoice" placeholder="07XXXXXXXX" require />
+                            <div class="col-8"><input type="number"id="contect"name="contect" class="input_invoice sup_in" placeholder="07XXXXXXXX" require />
                             </div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Address</label></div>
                             <div class="col-6"> 
-                            <input type="text" class="input_invoice addy"name="addrsss1" placeholder="Line 01" require />
+                            <input type="text" class="input_invoice addy sup_in"id="addrsss1"name="addrsss1" placeholder="Line 01" require />
                             </div>
                             
                         </div>
                         <div class="row">
                             <div class="col-3"></div>
                             <div class="col-6"> 
-                            <input type="text" class="input_invoice addy"name="addrsss2" placeholder="Line 02">
+                            <input type="text" class="input_invoice addy sup_in"id="addrsss2"name="addrsss2" placeholder="Line 02">
                             </div>
                             
                         </div>
 <p><br/></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Email</label></div>
-                            <div class="col-3"><input type="email" class="input_invoice emiy"name="email" placeholder="abc@gmail.com" require /></div>
+                            <div class="col-3"><input type="email" id="email_id"class="input_invoice emiy sup_in"name="email" placeholder="abc@gmail.com" require /></div>
                         </div><p><br></p>
                   
                         <div class="set-right">
                             <button class="btn btn-lg btn-submit "type="rest">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit " type="submit" name="submit">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit ">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-lg btn-submit ">Edit</button>
+                            <button class="btn btn-lg btn-submit " type="submit"id="sup_addBtn" name="submit">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-submit "type="submit" id="sup_editBtn"name="edit_supplier">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-submit "type="button" id="deleteSupplier">Delete</button>
                         </div>
                     </div>
                 </form>
@@ -119,11 +153,13 @@
                         $i=0;
                         while ($row=mysqli_fetch_assoc($fetch_query)) {
                             $i++;
-                            $sh_sup_uid    =$row['sup_uid'];
-                            $sh_sup_name       =$row['sup_name'];                      
+                            $sh_sup_uid         =$row['sup_uid'];
+                            $sh_sup_name        =$row['sup_name'];                      
                             $sh_contect_no      =$row['contect_no'];
-                            $sh_address         =$row['address'];
+                            $sh_address1         =$row['address'];
+                            $sh_address2         =$row['address2'];
                             $sh_email           =$row['email'];
+                            $sh_address         =$sh_address1." ".$sh_address2;
                         
                             echo "<tr>
                             <td class='lefty'>{$i}</td>
@@ -144,7 +180,8 @@
         </div>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/supplier.js"></script>
 <p><br></p>
 <p><br></p>
 </body>

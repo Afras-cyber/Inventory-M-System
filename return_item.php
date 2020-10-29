@@ -24,124 +24,113 @@ if (isset($_POST["submit"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Returned Item Update</title>
     <!--implemetn external Links-->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="css/item.css" />
     <link rel="stylesheet" href="css/table_item.css" />
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row bannger-head">
-        <div class="col-12 banner-tag">
-          <div class="top-banner">
-            <img src="res/img/logo.png" alt="LOGO" class="logo" />
-            <h1 id="head-title">Returned Item Update</h1>
-          </div>
+</head>
+
+<body>
+<div class="container-fluid" style="padding:0;">
+        <div class="row bannger-head">
+            <div class="col-12 banner-tag">
+                <div class="top-banner">
+                    <a href="home.php">
+                        <img src="res/img/logo.png" alt="LOGO" class="logo" />
+                    </a>
+                    <h1 id="head-title">Returned Item Update</h1>
+                </div>
+            </div>
         </div>
-      </div>
-      <br />
+        <br />
     </div>
     <div class="add-item-form box2">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-7 table2">
-            <form action="update-Item.php" method="POST">
-              <div>
-                <div class="row">
-                  <div class="col-3"><label class="label">Item No</label></div>
-                  <div class="col-3">
-                    <input type="text" name="item_no" class="input_invoice" placeholder="HCF0013"/>
-                  </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-7 table2">
+                    <form action="update-Item.php" method="POST">
+                        <div>
+                            <div class="row">
+                                <div class="col-3"><label class="label">Item No</label></div>
+                                <div class="col-3">
+                                    <input type="text" name="item_no" class="input_invoice" placeholder="HCF0013" />
+                                </div>
+                            </div>
+                            <p><br /></p>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Item Name</label>
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" name="item_name" class="input_invoice"
+                                        placeholder="Wall-hung Basin" />
+                                </div>
+                            </div>
+                            <p><br /></p>
+                            <div class="row">
+                                <div class="col-3"><label class="label">Category</label></div>
+                                <div class="col-3">
+                                    <select id="cateory" name="category" class="input_invoice">
+                                        <option value="">--Select--</option>
+                                        <option value="volvo">Volvo</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="fiat">Fiat</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p><br /></p>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Quantity</label>
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" name="qty" class="input_invoice" placeholder="Quantity" />
+                                </div>
+                            </div>
+                            <p><br /></p>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Reason</label>
+                                </div>
+                                <div class="col-6">
+                                    <textarea name="reason" id="" cols="70" rows="15"
+                                        class="textarea_invoice"></textarea>
+                                </div>
+                            </div>
+                            <p><br /></p>
+                            <div class="set-right">
+                                <button class="btn btn-lg btn-submit" type="rest">
+                                    Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-lg btn-submit" type="submit" name="submit">
+                                    Add
+                                </button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-lg btn-submit">Undo</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <p><br /></p>
-                <div class="row">
-                  <div class="col-3">
-                    <label class="label">Item Name</label>
-                  </div>
-                  <div class="col-3">
-                    <input type="text" name="item_name" class="input_invoice" placeholder="Wall-hung Basin"/>
-                  </div>
-                </div>
-                <p><br /></p>
-                <div class="row">
-                  <div class="col-3"><label class="label">Category</label></div>
-                  <div class="col-3">
-                    <select id="cateory" name="category" class="input_invoice">
-                      <option value="">--Select--</option>
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
-                    </select>
-                  </div>
-                </div>
-                <p><br /></p>
-                <div class="row">
-                  <div class="col-3">
-                    <label class="label">Quantity</label>
-                  </div>
-                  <div class="col-3">
-                    <input type="number" name="qty" class="input_invoice" placeholder="Quantity"/>
-                  </div>
-                </div>
-                <p><br /></p>
-                <div class="row">
-                  <div class="col-3">
-                    <label class="label">Reason</label>
-                  </div>
-                  <div class="col-6">
-                    <textarea
-                      name="reason"
-                      id=""
-                      cols="70"
-                      rows="15"
-                      class="textarea_invoice"
-                    ></textarea>
-                  </div>
-                </div>
-                <p><br /></p>
-                <div class="set-right">
-                  <button class="btn btn-lg btn-submit" type="rest">
-                    Clear</button
-                  >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button
-                    class="btn btn-lg btn-submit"
-                    type="submit"
-                    name="submit"
-                  >
-                    Add
-                  </button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Undo</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-5 table1">
-            <table>
-              <tr>
-                <th class="lefty"></th>
-                <th>Item No</th>
-                <th class='namey'>Item Name</th>
-                <th>Category</th>
-                <th class="righty">Quantity</th>
-              </tr>
-              <br />
-              <?php
+                <div class="col-5 table1">
+                    <table>
+                        <tr>
+                            <th class="lefty"></th>
+                            <th>Item No</th>
+                            <th class='namey'>Item Name</th>
+                            <th>Category</th>
+                            <th class="righty">Quantity</th>
+                        </tr>
+                        <br />
+                        <?php
                 $sql2="SELECT * FROM `return_item`";
                 $fetch_query=mysqli_query($connection, $sql2);
                 $count_rows=mysqli_num_rows($fetch_query);
@@ -165,13 +154,14 @@ if (isset($_POST["submit"])) {
                 }
 
 ?>
-            </table>
-            <div></div>
-          </div>
+                    </table>
+                    <div></div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <p><br /></p>
     <p><br /></p>
-  </body>
+</body>
+
 </html>

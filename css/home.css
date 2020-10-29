@@ -24,7 +24,7 @@ body {
 }
 
 .bannger-head {
-    height: 60vh;
+    height: fit-content;
     margin: 0;
 
 }
@@ -71,7 +71,9 @@ body {
 }
 
 .list-order {
+    width:100%;
     display: flex;
+    flex-wrap: wrap;
 
 }
 
@@ -153,6 +155,8 @@ body {
 tbody {
     width: 100%;
     min-height: 80vh;
+    max-height: 100vh;
+    overflow-y: scroll;
     background-color: #C4C4C4;
     display: inline-block;
     border-left: 0px solid black;

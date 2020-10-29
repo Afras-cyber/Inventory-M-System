@@ -5,7 +5,7 @@ $(document).ready(function(){
         var query = $(this).val();      
         if(query != ''){
             $.ajax({
-                url:'action.php',
+                url:'Action/action.php',
                 type:'POST',
                 data:{query:query},
                 success:function(data){

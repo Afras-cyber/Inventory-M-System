@@ -1,0 +1,201 @@
+body {
+    background: #F5F3F3;
+}
+
+.top-banner {
+    vertical-align: top;
+    background-color: #4d4848;
+    height: 45vh;
+}
+
+.bottom-banner {
+    padding: 2vh;
+}
+
+.btn-item {
+    margin: 10px;
+    font-family: Jaldi;
+    align-items: center;
+    background: #C4C4C4;
+    border-radius: 20.5px;
+    color: #FFFFFF;
+}
+
+.bannger-head {
+    height: 60vh;
+    margin: 0;
+}
+
+.banner-tag {
+    padding: 0;
+    margin: 0;
+}
+
+.img-tag {
+    margin: 0;
+    padding: 0;
+
+}
+
+.img-tag img {
+    margin: 0;
+    padding: 0;
+    height: 60vh;
+    width: 100%;
+
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 60px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+#head-title {
+    font-weight: bolder;
+    color: #eb772a;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+
+#head-sub {
+    color: white;
+    font-family: Gemunu Libre SemiBold;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+
+.list-order {
+    display: flex;
+
+}
+
+.input_invoice {
+    border: 0;
+    width: 179px;
+    height: 42px;
+    margin: 10px;
+    background: #C4C4C4;
+    border-radius: 9px;
+    font-family: Jaldi;
+    font-style: normal;
+    font-weight: normal;
+    padding: 10px;
+    line-height: 34px;
+
+    align-items: center;
+    color: rgba(0, 0, 0, 0.28);
+}
+
+.label {
+
+    height: 37px;
+    left: 86px;
+    top: 626px;
+    font-family: Jaldi;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 34px;
+    align-items: center;
+    color: #000000;
+}
+
+.btn-submit {
+    margin-right: 10%;
+    padding-left: 30px;
+    padding-right: 30px;
+    float:right;
+    background: #EE6342;
+    border-radius: 9px;
+    font-family: Jaldi;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+#sale_INVOICE {
+    font-family: Jaldi;
+    align-items: center;
+    color: #000000;
+}
+
+.sale-for-sale {
+    padding: 10px 50px;
+}
+
+.rm-top {
+    border-top: 0px
+}
+
+.right-side-btn {
+    border-right: 0px;
+    border-left: 0px;
+}
+.middle_field{
+    width:30%;
+}
+.table1 {
+    width: 90%;
+}
+
+.left-side {
+    border-left: 0px;
+    width: 5%;
+}
+
+.right-side {
+    border-right: 0px;
+   
+}
+
+tbody {
+    width: 100%;
+    min-height: 80vh;
+    background-color: #C4C4C4;
+    display: inline-block;
+    border-left: 0px solid black;
+    border-right: 0px solid black;
+    border-radius: 2%;
+}
+
+th {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 20px;
+    width: 250px;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+    width: 250px;
+}
+
+.right-side-btn {
+    width: 2%;
+
+}
+
+.rm-item {
+    background-color: #C4C4C4;
+    border: 0px;
+    color: #EE6342;
+}
+
+.rm-item:hover {
+    background-color: #C4C4C4;
+    border: 0px;
+    color: red;
+}
+
+.table2 {
+    display: flex;
+    margin-left: 70%;
+}

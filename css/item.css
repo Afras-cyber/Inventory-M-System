@@ -94,7 +94,8 @@ body {
 ul{
     background-color: #eee;    
     list-style-type: none;
-   
+    max-height: 60vh;
+    overflow-y: scroll;   
     cursor: pointer;
 }
 li{
@@ -109,6 +110,11 @@ li:hover{
     border:1px solid rgb(71, 70, 70);
 }
 #list_item{
+    position: absolute;
+    height:100%;
+    z-index: 1;   
+}
+#list_supplier{
     position: absolute;
     height:100%;
     z-index: 1;   
