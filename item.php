@@ -80,15 +80,10 @@ if (isset($_POST["submit2"])) {
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
                     <input type="text" name="item_id" class="input_invoice" id="item_id"/>
-                    <!-- <div id ='list_item'></div> -->
-                    <script>
-                  </script>
                   </div>
                 </div>
                 <div class=row>
-                <div class="col-3">
-                   
-                  </div>
+                <div class="col-3"></div>
                   <div class="col-3">
                   <div id ='list_item'></div>
                   </div>
@@ -163,13 +158,13 @@ if (isset($_POST["submit2"])) {
                     type="submit"
                     name="submit2"
                     id="add"
-                    onclick="myrequest()"
+                   
                   >
                     Add</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Edit</button
+                  <button class="btn btn-lg btn-submit" name="edit">Edit</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit">Delete</button>
+                  <button class="btn btn-lg btn-submit" name="delete">Delete</button>
                 </div>
               </div>
             </form>
@@ -186,16 +181,7 @@ if (isset($_POST["submit2"])) {
                 <th class="righty">Description</th>
               </tr>
               <br />
-              <!-- <tr>
-                        <td class="lefty" >1              </td>
-                        <td>HGF0012        </td>
-                        <td>Art Basin      </td>
-                        <td>Basin Mixer       </td>
-                        <td>20000 </td>
-                        <td>10000  </td>
-                        <td class="righty">-    </td> 
-                    </tr>              -->
-                    <?php
+                <?php
                     $sql2="SELECT * FROM `item`";
                     $fetch_query=mysqli_query($connection, $sql2);
                     $count_rows=mysqli_num_rows($fetch_query);
@@ -222,7 +208,7 @@ if (isset($_POST["submit2"])) {
                         }
                     }
 
-                    ?>
+                ?>
             </table>
             <div></div>
           </div>
