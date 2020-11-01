@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2020 at 06:17 PM
+-- Generation Time: Nov 01, 2020 at 02:23 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -147,15 +147,11 @@ CREATE TABLE `invoice_hmT` (
   `qty` int(11) NOT NULL,
   `price` float NOT NULL,
   `customer_name` varchar(255) DEFAULT NULL,
-  `customer_id` varchar(255) DEFAULT NULL
+  `email` varchar(255) NOT NULL,
+  `customer_id` varchar(255) DEFAULT NULL,
+  `discount` float NOT NULL DEFAULT 0,
+  `value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `invoice_hmT`
---
-
-INSERT INTO `invoice_hmT` (`i_id`, `item_no`, `item_name`, `qty`, `price`, `customer_name`, `customer_id`) VALUES
-(2, 'ewfsdf', '342', 12, 3432, 'dfsdf', 'cxce342');
 
 -- --------------------------------------------------------
 
@@ -179,8 +175,9 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`, `qty`, `description`, `buy`, `sell`) VALUES
-(17, 'URY- 12345', 'PIEP', 'fiat', 0, 'hello', 1245, 3213),
-(18, 'URY- 1234', '/^[a-zA-Z ]*$/', 'fiat', 0, 'hello', 1245, 3213);
+(17, 'URY- 12345', 'PIEP', 'fiat', 50, 'hello', 1245, 3213),
+(18, 'URY- 1234', 'helo\r\n', 'fiat', 113, 'hello', 1245, 3213),
+(19, 'URL-0090', 'BASIN', 'fiat', 118, 'hello', 230, 320);
 
 -- --------------------------------------------------------
 
@@ -352,13 +349,13 @@ ALTER TABLE `invoice`
 -- AUTO_INCREMENT for table `invoice_hmT`
 --
 ALTER TABLE `invoice_hmT`
-  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `item_qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `return_item`
