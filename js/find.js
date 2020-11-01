@@ -1,156 +1,122 @@
-<<<<<<< HEAD
-$(document).ready(function () {
-    $("#item_id").keyup(function () {
-        var query = $(this).val();
-        if (query != "") {
-            $.ajax({
-                url: "action.php",
-                type: "POST",
-                data: {
-                    query: query,
-                },
-                success: function (data) {
-                    $("#list_item").fadeIn();
-                    $("#list_item").html(data);
-                },
-            });
-        } else {
-            $("#list_item").fadeOut();
-            $("#list_item").html("");
-=======
 
-$(document).ready(function(){
- 
-    $('#item_id').keyup(function(){
-        var query = $(this).val();   
-        
-        if(query != ''){
+$(document).ready(function () {
+    $("#delete9").attr("disabled", true);
+    $("#edit_itm").attr("disabled", true);
+    $('#item_id').keyup(function () {
+        var query = $(this).val();
+
+        if (query != '') {
             $("#item_add").attr("disabled", false);
+            $("#delete9").attr("disabled", true);
+            $("#edit_itm").attr("disabled", true);
             $.ajax({
-                url:'Action/action.php',
-                type:'POST',
-                data:{query:query},
-                success:function(data){
+                url: 'Action/action.php',
+                type: 'POST',
+                data: { query: query },
+                success: function (data) {
                     $('#list_item').fadeIn();
                     $('#list_item').html(data);
                 }
             })
-        }else{
+        } else {
             $("#item_add").attr("disabled", false);
-                     $('#list_item').fadeOut();
-                     $('#list_item').html("");
->>>>>>> d06747fb74e36af775cb275174031350925ee268
+            $("#delete9").attr("disabled", true);
+            $("#edit_itm").attr("disabled", true);
+            $('#list_item').fadeOut();
+
+            $('#list_item').html("");
         }
     });
-
-<<<<<<< HEAD
-    $(document).on("click", "li", function () {
-        $("#item_id").val($(this).text());
-        $("#list_item").fadeOut();
-        var id = $("#item_id").val();
-        $.ajax({
-            method: "POST",
-            url: "action.php",
-            data: {
-                item: id,
-            },
-            success: function (responseObject) {
-                var obj = JSON.parse(responseObject);
-                $("#item_name").val(obj.item_name);
-                $("#cateory").val(obj.category);
-                $("#desc").val(obj.description);
-                $("#buy_me").val(obj.buy);
-                $("#sell_me").val(obj.sell);
-            },
-            failure: function () {
-                console.log("failed somethin wrong in adding form data");
-            },
-        });
+    $(window).click(function () {
+        $('#list_item').fadeOut();
     });
-});
-=======
-    $(document).on('click','li',function(){
+    $(document).on('click', 'li', function () {
         $('#item_id').val($(this).text());
         $('#list_item').fadeOut();
-        // 
+
         console.log("Item Selected")
-      
-         var id = $('#item_id').val();
-         $("#item_add").attr("disabled", true);
-                $.ajax({
-                    method: 'POST',
-                    url: 'Action/action.php',
-                    data: {
-                       item: id
-                    },
-                    success: function( responseObject ) {
-                     console.log("Item recevied success")
-                       
-                        // console.log(responseObject.item_name);
-                        var obj = JSON.parse(responseObject);
-                    // var name= i['item_name'];
-                   
-                  
-                      
-                      $('#item_name').val(obj.item_name);
-                      $('#cateory').val(obj.category);
-                      $('#desc').val(obj.description);
-                      $('#buy_me').val(obj.buy);
-                      $('#sell_me').val(obj.sell);
-                       
-                    },
-                    failure: function() {
-                       console.log('item Failed')
-                       $("#item_add").attr("disabled", false);
-                    }
-                });       
-           
-          
-               
+
+        var id = $('#item_id').val();
+        $("#item_add").attr("disabled", true);
+        $("#delete9").attr("disabled", false);
+        $("#edit_itm").attr("disabled", false);
+        $.ajax({
+            method: 'POST',
+            url: 'Action/action.php',
+            data: {
+                item: id
+            },
+            success: function (responseObject) {
+                console.log("Item recevied success")
+
+                // console.log(responseObject.item_name);
+                var obj = JSON.parse(responseObject);
+                // var name= i['item_name'];
+
+
+
+                $('#item_name').val(obj.item_name);
+                $('#cateory').val(obj.category);
+                $('#quty').val(obj.qty);
+                $('#desc').val(obj.description);
+                $('#buy_me').val(obj.buy);
+                $('#sell_me').val(obj.sell);
+
+            },
+            failure: function () {
+                console.log('item Failed')
+                $("#item_add").attr("disabled", false);
+                $("#delete9").attr("disabled", true);
+                $("#edit_itm").attr("disabled", true);
+            }
+        });
+
+
+
         // 
     })
-   
-    
-    $('#delete9').click(function(e){     
+
+
+    $('#delete9').click(function (e) {
         var askDelet = confirm('Do you really want delete this Item');
         e.preventDefault();
-        if(askDelet==true){
-        var itme_id1 = $('#item_id').val();  
-        //     alert("true worked"+itme_id1);
+        if (askDelet == true) {
+            var itme_id1 = $('#item_id').val();
+            //     alert("true worked"+itme_id1);
             $.ajax({
-                method:'POST',
-                url:'Action/action.php',
-                data:{delete_item:itme_id1},
-                success: function( data ) {
+                method: 'POST',
+                url: 'Action/action.php',
+                data: { delete_item: itme_id1 },
+                success: function (data) {
                     console.log("Item deleted success");
                     console.log(data);
                     location.reload(true);
 
                 }
-                
+
             })
         }
-        else{
+        else {
             console.log('delete item cancel');
-        }      
-        
+        }
+
     })
     //---------------------------------------------------------------
 
     $('#item_add').click(function (e) {
         e.preventDefault();
         console.log('add clicked')
-           
+
         if ($('.itm_input').val().trim() === "") {
-            alert('its  empty')
+            console.log('its  empty')
         } else {
-            alert('its not empty')
+            console.log('its not empty')
             $.ajax({
                 method: 'POST',
                 url: 'Action/item_add.php',
                 data: $('#itm_frm').serialize(),
-                success: function (data) {                    
-                        $('#message1').html(data);                    
+                success: function (data) {
+                    $('#message1').html(data);
                 }
             })
         }
@@ -168,14 +134,13 @@ $(document).ready(function(){
                 url: 'Action/item_edit.php',
                 data: $('#itm_frm').serialize(),
                 success: function (data) {
-                        $('#message1').html(data);
+                    $('#message1').html(data);
                 }
             })
         }
     })
-    
+
 })
-// 2VM2255 find.js:38 
+// 2VM2255 find.js:38
 // {"item_qid":"12","item_id":"URL434234","item_name":"","category":"","qty":"0","description":"","buy":"0","sell":"0"}
 
->>>>>>> d06747fb74e36af775cb275174031350925ee268

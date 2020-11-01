@@ -2,8 +2,9 @@
 include('../inc/connection.php');
 
     $no         =$_POST['item_id'];
-    $name1       =$_POST['item_name'];
+    $name1      =$_POST['item_name'];
     $category   =$_POST['category'];
+    $qty        =$_POST['qty'];
     $description=$_POST['description'];
     $buy        =$_POST['buy_price'];
     $sell       =$_POST['sale_price'];
@@ -35,8 +36,8 @@ include('../inc/connection.php');
       exit();
        }
       else{
-         $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,  `description`, `buy`, `sell`) 
-         VALUES (NULL, '$no', '$name1', '$category', '$description', '$buy', '$sell');";
+         $sql="INSERT INTO `item` (`item_qid`, `item_id`, `item_name`, `category`,`qty`,  `description`, `buy`, `sell`) 
+         VALUES (NULL, '$no', '$name1', '$category','$qty', '$description', '$buy', '$sell');";
          $check_query=mysqli_query($connection, $sql);
              if ($check_query) {
                  echo "<script>console.log('query succesfully inserted')</script>";

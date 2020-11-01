@@ -5,6 +5,7 @@ include('../inc/connection.php');
     $no1         =$_POST['item_id'];
     $name1       =$_POST['item_name'];
     $category1   =$_POST['category'];
+    $qty         =$_POST['qty'];
     $description1=$_POST['description'];
     $buy1        =$_POST['buy_price'];
     $sell1       =$_POST['sale_price'];
@@ -21,9 +22,10 @@ include('../inc/connection.php');
                   </div>`)</script>;";
          exit(); 
       }
-  
+  //  
+
     $update_query="UPDATE `item` SET `item_name`='$name1',
-    `category`='$category1',`description`='$description1',`buy`='$buy1',`sell`='$sell1' WHERE item_id ='$no1'";
+    `category`='$category1',`qty`='$qty',`description`='$description1',`buy`='$buy1',`sell`='$sell1' WHERE item_id ='$no1'";
     $result2=mysqli_query($connection,$update_query);
     if($result2){
       $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected

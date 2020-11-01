@@ -173,28 +173,105 @@
             <caption>
                 <h3></h3>
             </caption>
-            <div id="rowOfInvoice"></div>         
+            <div id="table">
+
+
+                <div class="row" >
+                    <div class="col-1 left-side "></div>
+                    <div class="col-1">Item No </div>
+                    <div class="col-1">Item Name </div>
+                    <div class="col-1">Qty </div>
+                    <div class="col-1">Price (LKR) </div>
+                    <div class="col-1">Discount </div>
+                    <div class="col-1 right-side">value(LKR) </div>
+                    <div class="col-1 right-side-btn rm-top"></div>
+                </div>
+                <!-- <tr>
+                    <td class="left-side">1 </td>
+                    <td>He34r </td>
+                    <td>Janthi </td>
+                    <td>5 </td>
+                    <td>2500LKR </td>
+                    <td>25% </td>
+                    <td class="right-side">3450 </td>
+                    <td class="right-side-btn "><button class="rm-item" id='rm_list' ><i class="fas fa-minus-circle"></i></button>
+                    </td>
+
+                </tr> -->
+                        <span id="rowOfInvoice"></span>
+                <?php
+                        // $int_sql="SELECT * FROM `invoice_hmT`";                       
+                        // $int_query=mysqli_query($connection,$int_sql);
+                        // if($int_query){
+                        //     $int_count=mysqli_num_rows($int_query);
+                        //     if($int_count>0){
+                        //         $i=0;
+                        //         while($i_row=mysqli_fetch_assoc($int_query)){
+                        //             $i++;
+                        //             $i_id=$i_row['i_id'];
+                        //             $it_no=$i_row['item_no'];
+                        //             $it_na=$i_row['item_name'];
+                        //             $i_qty=$i_row['qty'];
+                        //             $i_price=$i_row['price'];
+                        //             $i_dis=$i_row['discount'] ;
+                        //             $i_val=$i_row['value']   ;                              
+                                    
+
+
+                        //             echo "<tr>
+                        //             <td class='left-side'>{$i} </td>
+                        //             <td>{$it_no}</td>
+                        //             <td>{$it_na}</td>
+                        //             <td>{$i_qty}</td>
+                        //             <td>{$i_price} </td>
+                        //             <td>{$i_dis}</td>
+                        //             <td class='right-side'>LKR {$i_val}</td>
+                        //             <td class='right-side-btn'><button tid='{$i_id}' id='rm_list' class='rm-item'><i class='fas fa-minus-circle'></i></button>
+                        //             </td>                
+                        //         </tr>";
+                        //         }
+                        //     }else{
+                        //     echo"<script>console.log('Table is empty')</script>";
+                        // }
+                        // }else{
+                        //     echo"<script>console.log('fail to connect')</script>";
+                        // }                        
+                        ?>
+            </div>
+
         </div>
         <p><br /></p>
         <div class="table2">
             <h5>Total Price</h5>&nbsp;&nbsp;:&nbsp;&nbsp;
-            <h5 id="total-price"></h5>
+            <h5 id="total-price">43567</h5>
         </div>
+
     </center>
     <p><br /></p>
     <div>
 
-        <div class="container">         
+        <div class="container">
+            <!-- <h4>Transports(optional)</h4>
+            <p><br /></p>
+            <div class="row">
+                <div class="col-4"><label class="label">Transport Id :&nbsp;&nbsp;&nbsp;&nbsp;</label><input
+                        class="input_invoice" type="text"></div>
+                <div class="col-5"><label class="label">Transport Name :&nbsp;&nbsp;&nbsp;&nbsp;</label><input
+                        class="input_invoice" type="text"></div>
+            </div>
+            <p><br /></p> -->
             <div class="set-right">
-                <button type="button" id="clearAllTable"class="btn btn-lg btn-submit">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-lg btn-submit" id ='printDoc'>Print</button>
+                <button class="btn btn-lg btn-submit ">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-lg btn-submit ">Print</button>
             </div>
         </div>
         <p><br /></p>
         <p><br /></p>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/home.js"></script>       
+        <script src="js/home.js"></script>
+       
         <p><br /></p>
     </div>
 </body>
+
 </html>

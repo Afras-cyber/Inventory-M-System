@@ -1,0 +1,36 @@
+
+#sug{
+    background-color: #eee;    
+    list-style-type: none;
+    max-height: 60vh;
+    overflow-y: scroll;   
+    cursor: pointer;
+   
+}
+.sugList{
+    padding: 12px;
+    background-color: #eee;
+    width: 230px;
+    height: 42px;
+  
+}
+.sugList:hover{
+    border-color: rgb(168, 165, 165);
+    border:1px solid rgb(71, 70, 70);
+}
+#listOfItem,#listOfName{
+    position: absolute;
+    height:100%;
+    z-index: 1;   
+}
+#sugList{
+    padding: 12px;
+    background-color: #eee;
+    width: 230px;
+    height: 42px;
+  
+}
+#sugList:hover{
+    border-color: rgb(168, 165, 165);
+    border:1px solid rgb(71, 70, 70);
+}

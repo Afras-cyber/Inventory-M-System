@@ -82,16 +82,17 @@ body {
     width: 179px;
     height: 42px;
     margin: 10px;
+    outline-style: none;
     background: #C4C4C4;
     border-radius: 9px;
-    font-family: Jaldi;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     font-weight: normal;
     padding: 10px;
     line-height: 34px;
 
     align-items: center;
-    color: rgba(0, 0, 0, 0.28);
+    color: black;
 }
 
 .label {
@@ -138,7 +139,7 @@ body {
 }
 
 .table1 {
-
+    margin-top:10%;
     width: 80%;
 }
 
@@ -197,6 +198,7 @@ td {
     background-color: #C4C4C4;
     border: 0px;
     color: red;
+    cursor: pointer;
 }
 
 .table2 {

@@ -97,6 +97,7 @@ ul{
     max-height: 60vh;
     overflow-y: scroll;   
     cursor: pointer;
+   
 }
 li{
     padding: 12px;

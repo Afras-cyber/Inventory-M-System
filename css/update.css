@@ -35,6 +35,13 @@ tbody {
     border-right: 0px solid black;
     width: 30%;
 }
+.rightx {
+    border-right: 0px solid black;
+    width: 25%;
+}
+.qCOL{
+    width: 8%;
+}
 
 th {
     border-bottom: 1px solid black;

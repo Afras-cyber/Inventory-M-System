@@ -48,14 +48,7 @@
                 <div class="row">
                   <div class="col-3"><label class="label">Item No</label></div>
                   <div class="col-3">
-<<<<<<< HEAD
-                    <input type="text" name="item_id" class="input_invoice" id="item_id"/>
-=======
-                    <input autocomplete="off" type="text" name="item_id" class="input_invoice itm_input" id="item_id"/>
-                    <!-- <div id ='list_item'></div> -->
-                    <script>
-                  </script>
->>>>>>> d06747fb74e36af775cb275174031350925ee268
+                    <input type="text" autocomplete="off" name="item_id" class="input_invoice" id="item_id"/>
                   </div>
                 </div>
                 <div class=row>
@@ -84,6 +77,15 @@
                       <option value="fiat">Fiat</option>
                       <option value="audi">Audi</option>
                     </select>
+                  </div>
+                </div>
+                <p><br /></p>
+                <div class="row">
+                  <div class="col-3">
+                    <label class="label">Quantity</label>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" id="quty" name="qty" class="input_invoice itm_input" />
                   </div>
                 </div>
                 <p><br /></p>
@@ -134,29 +136,14 @@
                     class="btn btn-lg btn-submit"
                     type="submit"
                     name="submit2"
-<<<<<<< HEAD
-                    id="add"
+                    id="item_add"
                    
                   >
                     Add</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit" name="edit">Edit</button
+                  <button class="btn btn-lg btn-submit" id="edit_itm"name="edit">Edit</button
                   >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit" name="delete">Delete</button>
-=======
-                    id="item_add"
-                  
-                  >
-                    Add</button
-                  >&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-lg btn-submit" id="edit_itm"name="edit9">Edit</button
-                  >&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-lg btn-submit" 
-                            id="delete9"  
-                                                  
-                            >Delete</button>
-                  
->>>>>>> d06747fb74e36af775cb275174031350925ee268
+                  <button class="btn btn-lg btn-submit" id="delete9"name="delete">Delete</button>
                 </div>
               </div>
             </form>
@@ -168,27 +155,14 @@
                 <th>Item No</th>
                 <th>Item Name</th>
                 <th>Category</th>
+                <th class="qCOL">Qty</th>
                 <th>Sale Price(LKR)</th>
                 <th>Buy Price(LKR)</th>
-                <th class="righty">Description</th>
+                <th class="rightx">Description</th>
               </tr>
               <br />
-<<<<<<< HEAD
                 <?php
-=======
-              <!-- <tr>
-                        <td class="lefty" >1              </td>
-                        <td>HGF0012        </td>
-                        <td>Art Basin      </td>
-                        <td>Basin Mixer       </td>
-                        <td>20000 </td>
-                        <td>10000  </td>
-                        <td class="righty">-    </td> 
-                    </tr>              -->
-                    
-                    <?php
->>>>>>> d06747fb74e36af775cb275174031350925ee268
-                    $sql2="SELECT * FROM `item`";
+                        $sql2="SELECT * FROM `item`";
                     $fetch_query=mysqli_query($connection, $sql2);
                     $count_rows=mysqli_num_rows($fetch_query);
                     if ($count_rows>0) {
@@ -198,6 +172,7 @@
                             $sh_itemNo      =$row['item_id'];
                             $sh_itemName    =$row['item_name'];
                             $sh_category    =$row['category'];
+                            $sh_qty         =$row['qty'];
                             $sh_description =$row['description'];
                             $sh_buy         =$row['buy'];
                             $sh_sell        =$row['sell'];
@@ -207,9 +182,10 @@
                             <td>{$sh_itemNo}</td>
                             <td>{$sh_itemName}</td>
                             <td>{$sh_category}</td>
+                            <td class='qCOL'>{$sh_qty}</td>
                             <td>{$sh_sell}</td>
                             <td>{$sh_buy}</td>
-                            <td class='righty'>$sh_description</td>
+                            <td class='rightx'>$sh_description</td>
                             </tr>    ";
                         }
                     }
