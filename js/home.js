@@ -203,7 +203,7 @@ $(document).ready(function () {
     e.preventDefault();  
     $.ajax({
       method: 'POST',
-      url: 'Action/action.php',
+      url: 'File/print.php',
       data: { printDoc:1},
       success: function (data) {
         $('#message01').html(data);

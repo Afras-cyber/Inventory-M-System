@@ -395,13 +395,22 @@ if(isset($_POST['clearAllTable'])){
    }
 }
 //-----------------------------------------------print------------------------------------------------------------
-if(isset($_POST['printDoc'])){
-  // require_once '/opt/lampp/htdocs/IMS/Inventory-M-System'.'/vendor/autoload.php';
-  require_once __DIR__.'/vendor/autoload.php';
-  $mpdf= new \Mpdf\Mpdf();
-  $mpdf->WriteHTML('hello world');
-  $mpdf->Output('filename.pdf','D');
-  // $mpdf->Output('filename.pdf',\Mpdf\Output\Destination::FILE);
+// if(isset($_POST['printDoc'])){
+//   require_once 'C:\xampp\htdocs\Inventory-M-System'. '/vendor/autoload.php';
 
-}
+// $email= $_POST['email'];
+// $pwd= $_POST['pwd'];
+
+// $site="HELLO";
+
+// $mpdf = new \Mpdf\Mpdf();
+// $mpdf->WriteHTML("HELLO WORLD");
+// $pdfFilePath = "\download.pdf";
+// $getPath=getcwd()."\hello";
+
+// $mpdf->Output('mow.pdf', \Mpdf\Output\Destination::FILE);
+// // $mpdf->Output('mow.pdf', \Mpdf\Output\Destination::INLINE);
+
+
+// }
 ?>
