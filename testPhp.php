@@ -1,21 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+</head>
+<body>
+<form method="post" action='testPhp.php'>
+<p>Date: <input type="button" name="submit" id="datepicker"></p>
+</form> 
 <?php
- include('inc/connection.php');
-
-$cust_uid_e      =   'cust004';
-$cust_name_e    =  'afras';
-
-
-      $update_query="UPDATE `customer` SET `cust_name`='hey' WHERE `customer_uid`='cust004'";
-      $result2=mysqli_query($connection,$update_query);
-      if($result2){
-        $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
-        if ($check_effect_row==1) {        
-        echo "<script>console.log('update success ful')</script>";  
-        echo "<script>alert(`Customer  Details Updated`)</script>";      
-        }else{
-        echo "<script>console.log('affected failed')</script>";
-        }
-      }else{
-      echo "<script>console.log('update failed')</script>";
-      }
+echo "
+<script>document.querySelector('#datepicker').value; </script>";
 ?>
+
+</body>
+</html>

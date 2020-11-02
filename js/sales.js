@@ -1,6 +1,6 @@
 $(document).ready(function(){
  
-    // showSales();
+    showSales();
 
     $('body').delegate('#rmFromSales','click',function(e){
       e.preventDefault();  
@@ -17,11 +17,12 @@ $(document).ready(function(){
     })
   
     $('body').delegate('#datePicker','click',function(e){
-      e.preventDefault();  
+      e.preventDefault();
+      var i = $('#datePicker').val();
       $.ajax({
         method: 'POST',
         url: 'Action/selectday.php',
-        data: $('#selectDay').serialize(),
+        data: {selectDay:1,i:i},
         success: function (data) {
           
           $('#salesTable').html(data);

@@ -40,8 +40,8 @@
 </div><br/>    
 </div><form method="post" id="selectDay">
 <div class="container-fluid sale-for-sale">
-            <h1 id="sale_INVOICE"> Sale Invoice Information</h2><br>          
-            <input name="dateValue" type="button" id="datePicker" class="btn btn-lg btn-submit" value="YY-MM-DD">
+            <h1 id="sale_INVOICE"> Sale Invoice Information</h2><br>                
+            <input name="dateValue" type="submit" id="datePicker" class="btn btn-lg btn-submit" value="YY-MM-DD">
 </div>
 </form>
 <p><br/></p>
