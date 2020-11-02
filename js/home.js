@@ -114,7 +114,7 @@ $(document).ready(function () {
           var total = qty * echPrice;
           console.log(total);
           $("#item_price").val(total);
-          // $('#message1').html(data);
+         
 
         }
       })
@@ -127,14 +127,25 @@ $(document).ready(function () {
 
   });
 
-
-  $("#enterToInvoice").click(function (e) {
+  $('body').delegate('#enterToInvoice','click',function(e){
     e.preventDefault();
     console.log("enter button work");
 
-    if ($('.ivForm').val().trim() === "") {
-      alert('its  empty')
-    } else {
+    if ($('#item_no').val().trim() === "" && 
+    $('#discount').val().trim() === "" && 
+        $('#itm_name').val().trim() === "" && 
+        $('#itm_qty').val().trim() === "" && 
+        $('#item_price').val().trim() === "" 
+          
+    ) {
+     alert('Input field are empty')
+    }else if(
+      $('#hmCustName').val().trim() === "" && 
+      $('#custEmail').val().trim() === "" 
+    ){
+      alert('Input field are empty')
+    }
+     else {
       console.log('its  not empty')
       $.ajax({
         method: 'POST',
@@ -143,6 +154,7 @@ $(document).ready(function () {
         success: function (data) {
           showRows();
           $('#message01').html(data);
+          $('.ivForm').text(' ');
         }
       })
     }
@@ -198,19 +210,19 @@ $(document).ready(function () {
       }
     })
   })
-  $('body').delegate('#printDoc','click',function(e){
-    alert(0);
-    e.preventDefault();  
-    $.ajax({
-      method: 'POST',
-      url: 'File/print.php',
-      data: { printDoc:1},
-      success: function (data) {
-        $('#message01').html(data);
-        //showRows();
-      }
-    })
-  })
+  // $('body').delegate('#printDoc','click',function(e){
+  //   alert(0);
+  //   e.preventDefault();  
+  //   $.ajax({
+  //     method: 'POST',
+  //     url: 'File/print.php',
+  //     data: { printDoc:1},
+  //     success: function (data) {
+  //       $('#message01').html(data);
+  //       //showRows();
+  //     }
+  //   })
+  // })
 
 
 

@@ -157,10 +157,10 @@
                             class="input_invoice ivForm" placeholder="Sam" id ="hmCustName" name="cust_name"></div>
                     <div class="col-3"><label class="label">C. Email</label><input type="email" class="input_invoice ivForm"
                     autocomplete="on" placeholder="abc@emai.com" id ="custEmail" name="custEmail"></div>
-                     <div class="col-3"><label class="label">Discount</label><input type="number" class="input_invoice ivForm"
+                     <div class="col-3"><label class="label">Discount</label><input type="number" id="discount"class="input_invoice ivForm"
                             autocomplete="off" placeholder="LKR 5000"  name="discount"></div>
                   
-                    <div class="col-1"><input type="submit" id="enterToInvoice" class="btn btn-lg btn-submit"
+                    <div class="col-1"><input type="button" id="enterToInvoice" class="btn btn-lg btn-submit"
                             value="Enter"></div>
                             <div class="col-1"></div>
                 </div>
@@ -184,11 +184,13 @@
     <p><br /></p>
     <div>
 
+              <form method="POST" action="File/print.php">
         <div class="container">         
             <div class="set-right">
                 <button type="button" id="clearAllTable"class="btn btn-lg btn-submit">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-lg btn-submit" id ='printDoc'>Print</button>
+                <button type="submit" class="btn btn-lg btn-submit" id ='printDoc'>Print</button>
             </div>
+              </form>
         </div>
         <p><br /></p>
         <p><br /></p>
