@@ -72,10 +72,20 @@
                   <div class="col-3">
                     <select id="cateory" name="category" class="input_invoice itm_input">
                       <option value="">--Select--</option>
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                      <?php
+                        $catSQl="SELECT * FROM `category`";
+                        $catQuery=mysqli_query($connection,$catSQl);
+                        if($catQuery){                          
+                          if($cat_count=mysqli_num_rows($catQuery)>0){                              
+                              while($cat_row=mysqli_fetch_assoc($catQuery)){
+                                  $s++;
+                                  $cat_name=$cat_row['cat_name'];
+                                  echo "<option value='$cat_name'>$cat_name</option>";
+                        }}else{
+                          echo "<option value='#'>No Category</option>";
+                        }
+                      }
+                      ?>                      
                     </select>
                   </div>
                 </div>
