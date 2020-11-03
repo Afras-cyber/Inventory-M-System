@@ -91,13 +91,14 @@
   <div>
 
     <div class="container">
+    <form action="Order_Files/sent.php" method="POST">
       <div class=" set-right">
         <button class="btn btn-lg btn-submit" id="emptyTable" type="button">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-lg btn-submit" type="button">Sent</button>
+        <button class="btn btn-lg btn-submit" type="submit">Sent</button>
         <p><br /></p>
-        <a href="purchaseInfo.php"><h5>Order Invoice Information</h5></a>
-        
+        <a href="purchaseInfo.php"><h5>Order Invoice Information</h5></a>        
       </div>
+    </form>
     </div>
     <p><br /></p>
     <p><br /></p>

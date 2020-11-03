@@ -61,25 +61,17 @@ if (isset($_POST["submit"])) {
                         <div>
                             <div class="row">
                                 <div class="col-3"><label class="label">Item No</label></div>
-                                <div class="col-3">
-                                    <input type="text" name="item_no" class="input_invoice" placeholder="HCF0013" />
-                                </div>
+                                <div class="col-3"><input type="text" name="item_no" class="input_invoice" placeholder="HCF0013" /></div>
                             </div>
                             <p><br /></p>
                             <div class="row">
-                                <div class="col-3">
-                                    <label class="label">Item Name</label>
-                                </div>
-                                <div class="col-3">
-                                    <input type="text" name="item_name" class="input_invoice"
-                                        placeholder="Wall-hung Basin" />
-                                </div>
+                                <div class="col-3"><label class="label">Item Name</label></div>
+                                <div class="col-3"><input type="text" name="item_name" class="input_invoice" placeholder="Wall-hung Basin" />                             </div>
                             </div>
                             <p><br /></p>
                             <div class="row">
                                 <div class="col-3"><label class="label">Category</label></div>
-                                <div class="col-3">
-                                <select id="cateory" name="category" class="input_invoice itm_input">
+                                <div class="col-3"><select id="cateory" name="category" class="input_invoice itm_input">
                       <option value="">--Select--</option>
                       <?php
                         $catSQl="SELECT * FROM `category`";
@@ -100,22 +92,13 @@ if (isset($_POST["submit"])) {
                             </div>
                             <p><br /></p>
                             <div class="row">
-                                <div class="col-3">
-                                    <label class="label">Quantity</label>
-                                </div>
-                                <div class="col-3">
-                                    <input type="number" name="qty" class="input_invoice" placeholder="Quantity" />
-                                </div>
+                                <div class="col-3"><label class="label">Quantity</label></div>
+                                <div class="col-3"><input type="number" name="qty" class="input_invoice" placeholder="Quantity" /></div>
                             </div>
                             <p><br /></p>
                             <div class="row">
-                                <div class="col-3">
-                                    <label class="label">Reason</label>
-                                </div>
-                                <div class="col-6">
-                                    <textarea name="reason" id="" cols="70" rows="15"
-                                        class="textarea_invoice"></textarea>
-                                </div>
+                                <div class="col-3"><label class="label">Reason</label></div>
+                                <div class="col-6"><textarea name="reason" id="" cols="70" rows="15" class="textarea_invoice"></textarea></div>
                             </div>
                             <p><br /></p>
                             <div class="set-right">
@@ -172,6 +155,7 @@ if (isset($_POST["submit"])) {
     </div>
     <p><br /></p>
     <p><br /></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/supplier.js"></script>
 </body>
-
 </html>

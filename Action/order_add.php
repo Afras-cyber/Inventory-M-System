@@ -38,19 +38,21 @@ $name="/^[a-zA-Z ]*$/";
                  $check_query21=mysqli_query($connection,$findSql1);
                  if($check_query21){  
                     if(mysqli_num_rows($check_query21)>0){
+                        if($rows1 = mysqli_fetch_assoc($check_query21)){
+                                $suppID=$rows1['sup_id'];                                
+                                $sql1="INSERT INTO `ordertb` (`o_id`, `itm_no`, `itm_name`, `qty`,  `sup_name`,`sup_id`, `sup_email`) 
+                                VALUES (NULL, '$itm_no', '$itm_name', '$qty', '$sup_name','$suppID', '$sup_email');";
+                                $run_query1=mysqli_query($connection,$sql1);
+                                if($run_query1){                              
+                                                        
+                                  $nameErr = "Item Add";
+                                  echo "<div class='alert alert-success'>
+                                          <a herf=# class='close' data-dismiss='alert' aria-label='close'>
+                                          &times;</a><b>$nameErr</b> ";
+                                  exit();
+                                 }
+                        }
 
-
-                      $sql1="INSERT INTO `ordertb` (`o_id`, `itm_no`, `itm_name`, `qty`,  `sup_name`, `sup_email`) 
-                      VALUES (NULL, '$itm_no', '$itm_name', '$qty', '$sup_name', '$sup_email');";
-                      $run_query1=mysqli_query($connection,$sql1);
-                      if($run_query1){   
-                                              
-                        $nameErr = "Item Add";
-                        echo "<div class='alert alert-warning'>
-                                <a herf=# class='close' data-dismiss='alert' aria-label='close'>
-                                &times;</a><b>$nameErr</b> ";
-                        exit();
-                       }
                      }else{
                       $nameErr = "supplier email wrong There no such a supplier on list";
                       echo "<div class='alert alert-warning'>

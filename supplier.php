@@ -1,52 +1,6 @@
 <?php
-    // //importing conection file
-    include('inc/connection.php');
-
-    // //insert into database
-    // if(isset($_POST['submit'])){
-    //   $sup_uid      =   $_POST['sup_uid'];
-    //   $sup_name    =   $_POST['sup_name'];
-    //   $contect_no   =   $_POST['contect'];
-    //   $address1     =   $_POST['addrsss1'];
-    //   $address2     =   $_POST['addrsss2'];
-    //   $email        =   $_POST['email'];
-
-    //   $sql="INSERT INTO `supplier` (`sup_id`, `sup_uid`, `sup_name`, `contect_no`, `address`,`address2`, `email`) 
-    //   VALUES (NULL, '$sup_uid', '$sup_name', '$contect_no', '$address1','$address2', '$email')";
-    //   $check_query=mysqli_query($connection,$sql);
-    //   if($check_query){
-    //       echo "<script>console.log('query succesfully inserted')</script>";
-    //   }
-    //   else{
-    //       echo "<script>console.log('query insert failed')</script>";
-    //   }
-
-    // }
-    // //edit_supplier
-    // if(isset($_POST['edit_supplier'])){
-    //     $sup_uid      =   $_POST['sup_uid'];
-    //     $sup_name    =   $_POST['sup_name'];
-    //     $contect_no   =   $_POST['contect'];
-    //     $address1     =   $_POST['addrsss1'];
-    //     $address2     =   $_POST['addrsss2'];
-    //     $email        =   $_POST['email'];
-      
-    //     $update_query="UPDATE `supplier` SET `sup_name`='$sup_name',`contect_no`='$contect_no',
-    //     `address`='$address1',`address2`='$address2',`email`='$email' WHERE `sup_uid`='$sup_uid'";
-    //     $result2=mysqli_query($connection,$update_query);
-    //     if($result2){
-    //       $check_effect_row=mysqli_affected_rows($connection);
-    //       if ($check_effect_row==1) {        
-    //       echo "<script>console.log('update success ful')</script>";  
-    //       echo "<script>alert(`Customer  Details Updated`)</script>";      
-    //     }else{
-    //       echo "<script>console.log('affected failed')</script>";
-    //     }
-    //   }else{
-    //     echo "<script>console.log('update failed')</script>";
-    //   }
-    //   }
-      
+  
+    include('inc/connection.php');   
 
 ?>
 <!DOCTYPE html>

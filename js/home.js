@@ -207,21 +207,5 @@ $(document).ready(function () {
       }
     })
   })
-  // $('body').delegate('#printDoc','click',function(e){
-  //   alert(0);
-  //   e.preventDefault();  
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: 'File/print.php',
-  //     data: { printDoc:1},
-  //     success: function (data) {
-  //       $('#message01').html(data);
-  //       //showRows();
-  //     }
-  //   })
-  // })
-
-
-
-  //--------------------------bottom-------------------------------------------
+ 
 });

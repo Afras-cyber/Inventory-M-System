@@ -184,7 +184,7 @@
     <p><br /></p>
     <div>
 
-              <form method="POST" action="File/print.php">
+       <form method="POST" action="File/print.php">
         <div class="container">         
             <div class="set-right">
                 <button type="button" id="clearAllTable"class="btn btn-lg btn-submit">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
