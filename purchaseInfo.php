@@ -29,7 +29,7 @@
 </div><br/>    
 </div>
 <div class="container-fluid sale-for-sale">
-            <h1 id="sale_INVOICE"> Order Invoice Information</h2><br>          
+            <h1 id="sale_INVOICE"> Purchase Invoice Information</h2><br>          
             <input type="button" class="btn btn-lg btn-submit" value="MM/YYYY">
 </div>
 <p><br/></p>
@@ -37,6 +37,7 @@
 <center>
 <div class="table1">
  <table> 
+ <tbody id='tableBOdy'>
              <tr>
                 <th class="left-side "></th>
                 <th>Date     </th>
@@ -58,6 +59,7 @@
                 <td  class="right-side-btn "><button class="rm-item"><i class="fas fa-minus-circle"></i></button></td>         
                     
             </tr>
+ </tbody>
         
     </table>
 

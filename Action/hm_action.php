@@ -34,11 +34,7 @@ $name="/^[a-zA-Z ]*$/";
           exit();
       }
     
-      
-    //   
-    //      
-              
-    //                      
+                           
        $findSql="SELECT * FROM `item` WHERE item_id ='$item_no'";
        $check_query2=mysqli_query($connection,$findSql);
        if($check_query2){  
@@ -57,18 +53,27 @@ $name="/^[a-zA-Z ]*$/";
                             $sql_check1="SELECT * FROM `customer` WHERE email = '$cust_email' LIMIT 1";
                             $return1 = mysqli_query($connection,$sql_check1);
                             if($return1){
-                                if($rows1 = mysqli_fetch_assoc($return1)){
-                                              $custID=$rows1['customer_uid'];
-                                              $sql="INSERT INTO `invoice_hmT` (`item_no`, `item_name`, `qty`, `price`, `customer_name`,`email`, `customer_id`,`discount`,`value`) 
-                                              VALUES ('$item_no', '$item_name', '$qty', '$price', '$cust_name','$cust_email','$custID','$discount','$value')";
-                                              $run_query=mysqli_query($connection,$sql);
-                                              if($run_query){  
-                                                  
-                                                    echo "<script>
-                                                    $('.ivForm').text('');
-                                                      alert('Item Added');
-                                                    </script>" ;
-                                               }
+                                if(mysqli_num_rows($return1)>0){
+                                    if($rows1 = mysqli_fetch_assoc($return1)){
+                                                  $custID=$rows1['customer_uid'];
+                                                  $sql="INSERT INTO `invoice_hmT` (`item_no`, `item_name`, `qty`, `price`, `customer_name`,`email`, `customer_id`,`discount`,`value`) 
+                                                  VALUES ('$item_no', '$item_name', '$qty', '$price', '$cust_name','$cust_email','$custID','$discount','$value')";
+                                                  $run_query=mysqli_query($connection,$sql);
+                                                  if($run_query){  
+                                                      
+                                                    $nameErr = "Item Added";
+                                                    echo "<div class='alert alert-warning'>
+                                                            <a herf=# class='close' data-dismiss='alert' aria-label='close'>
+                                                            &times;</a><b>$nameErr</b> ";
+                                                    exit();
+                                                   }
+                                    }                                    
+                                }else{
+                                    $nameErr = "Email address wrong No such cutomer on the list";
+                                     echo "<div class='alert alert-warning'>
+                                             <a herf=# class='close' data-dismiss='alert' aria-label='close'>
+                                             &times;</a><b>$nameErr</b> ";
+                                     exit();
                                 }
                             }
                             else{
@@ -85,7 +90,11 @@ $name="/^[a-zA-Z ]*$/";
                     
                        }
                 }else{
-                    echo "<script>alert('No item avilable')</script>";
+                    $nameErr = "No such a Item available";
+                    echo "<div class='alert alert-warning'>
+                            <a herf=# class='close' data-dismiss='alert' aria-label='close'>
+                            &times;</a><b>$nameErr</b> ";
+                    exit();
                 }
             }
         }else{

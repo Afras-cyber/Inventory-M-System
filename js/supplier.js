@@ -21,7 +21,9 @@ $(document).ready(function(){
                      $('#list_supplier').html("");
         }
     })
-
+    $(window).click(function () {
+        $('#list_supplier').fadeOut();
+    });
     $(document).on('click','li',function(){
         $('#sup_uid').val($(this).text());
         $('#list_supplier').fadeOut();

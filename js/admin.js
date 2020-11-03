@@ -13,9 +13,7 @@ $(document).ready(function () {
                 data: $('#adAdmin').serialize(),
                 success: function (data) {
                     $('#message1').html(data);
-
                 }
-
             })
         }
     })

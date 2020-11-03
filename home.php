@@ -177,7 +177,7 @@
         </div>
         <p><br /></p>
         <div class="table2">
-            <h5>Total Price</h5>&nbsp;&nbsp;:&nbsp;&nbsp;
+            <h5>Total Price</h5>&nbsp;&nbsp;:&nbsp;&nbsp;LKR&nbsp;
             <h5 id="total-price"></h5>
         </div>
     </center>

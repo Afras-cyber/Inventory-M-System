@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '3d8b7e8ea60636824b0fc455b73417d1ab89dd02',
+    'reference' => '6d7639892acc0bba510b11701a274e039676b1ff',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '3d8b7e8ea60636824b0fc455b73417d1ab89dd02',
+      'reference' => '6d7639892acc0bba510b11701a274e039676b1ff',
     ),
     'mpdf/mpdf' => 
     array (
@@ -63,6 +63,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95',
+    ),
+    'phpmailer/phpmailer' => 
+    array (
+      'pretty_version' => 'v6.1.8',
+      'version' => '6.1.8.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '917ab212fa00dc6eacbb26e8bc387ebe40993bc1',
     ),
     'psr/log' => 
     array (

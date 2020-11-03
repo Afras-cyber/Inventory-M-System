@@ -52,14 +52,11 @@ $(document).ready(function () {
       $('#listOfItem').html("");
     }
   })
+  $(window).click(function () {
+    $('#listOfItem').fadeOut();
+});
 
   $(document).on('click', 'li', function () {
-
-    
-
-
-
-    ///-----------------------------------------------------------------
     console.log("Item Selected");
     $('#item_no').val($(this).text());
     $('#listOfItem').fadeOut();
@@ -132,12 +129,12 @@ $(document).ready(function () {
     console.log("enter button work");
 
     if ($('#item_no').val().trim() == "" || 
-       $('#discount').val().trim() == "" || 
+        $('#discount').val().trim() == "" || 
         $('#itm_name').val().trim() == "" || 
         $('#itm_qty').val().trim() == "" || 
         $('#item_price').val().trim() == "" ||
         $('#cust_name').val().trim() == "" || 
-      $('#custEmail').val().trim() == ""  
+        $('#custEmail').val().trim() == ""  
           
     ) {
      alert('Input field are empty')
@@ -151,8 +148,11 @@ $(document).ready(function () {
         success: function (data) {
           showRows();
           $('#message01').html(data);
-          $('.ivForm').text(' ');
-        }
+          $('#item_no').val("");
+          $('#discount').val("");
+          $('#itm_name').val("");
+          $('#itm_qty').val("");
+          $('#item_price').val("");        }
       })
     }
   })
