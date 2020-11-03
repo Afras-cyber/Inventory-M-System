@@ -133,7 +133,7 @@
     </div>
     <div class="container-fluid sale-for-sale">
 
-        <form id="form_invoice" action="home.php" method="POST">
+        <form id="form_invoice" name="set"action="home.php" method="POST">
             <h1 id="sale_INVOICE"> Sale Invoice</h2>
                 <div id="message01"></div><br>
                 <div class="row ">
@@ -154,7 +154,7 @@
 
                 <div class="row">
                     <div class="col-3"><label class="label">C. Name</label><input type="text" autocomplete="off"
-                            class="input_invoice ivForm" placeholder="Sam" id ="hmCustName" name="cust_name"></div>
+                            class="input_invoice ivForm" placeholder="Sam" id ="cust_name" name="cust_name"></div>
                     <div class="col-3"><label class="label">C. Email</label><input type="email" class="input_invoice ivForm"
                     autocomplete="on" placeholder="abc@emai.com" id ="custEmail" name="custEmail"></div>
                      <div class="col-3"><label class="label">Discount</label><input type="number" id="discount"class="input_invoice ivForm"

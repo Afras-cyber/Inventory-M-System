@@ -131,19 +131,16 @@ $(document).ready(function () {
     e.preventDefault();
     console.log("enter button work");
 
-    if ($('#item_no').val().trim() === "" && 
-    $('#discount').val().trim() === "" && 
-        $('#itm_name').val().trim() === "" && 
-        $('#itm_qty').val().trim() === "" && 
-        $('#item_price').val().trim() === "" 
+    if ($('#item_no').val().trim() == "" || 
+    $('#discount').val().trim() == "" || 
+        $('#itm_name').val().trim() == "" || 
+        $('#itm_qty').val().trim() == "" || 
+        $('#item_price').val().trim() == "" ||
+        $('#cust_name').val().trim() == "" || 
+      $('#custEmail').val().trim() == ""  
           
     ) {
      alert('Input field are empty')
-    }else if(
-      $('#hmCustName').val().trim() === "" && 
-      $('#custEmail').val().trim() === "" 
-    ){
-      alert('Input field are empty')
     }
      else {
       console.log('its  not empty')

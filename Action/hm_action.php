@@ -15,12 +15,7 @@ $changeInQty= (int)$qty;
 
 //--------------------------------------------------------
 $name="/^[a-zA-Z ]*$/";
-if($item_no=='' && $item_name=='' && $qty=='' && $price==''
-&& $cust_name=='' && $cust_email=='' && $discount==''){
-  
-    echo "<script>alert('Input filed are empty')</script>";
-   exit();
-}else{
+
     echo "<script>alert('Input filed are notempty')</script>";
     if (!filter_var($cust_email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
@@ -100,7 +95,7 @@ if($item_no=='' && $item_name=='' && $qty=='' && $price==''
     }else{
         echo "<script>console.log('select item query failed')</script>";
     }
-}
+
 
 
 // }}

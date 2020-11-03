@@ -101,18 +101,19 @@
               
   //insert value to Sales information
   $insertSQL="INSERT INTO `sales_info` (`sales_id`, `cust_id`, `file`, `qty`, `date`) 
-  VALUES (NULL, '$customer_id', '$file', '$qty', 'current_timestamp()')";
+  VALUES (NULL, '$customer_id', '$newfile', '$tolQty', current_timestamp())";
   $insertQuery=mysqli_query($connection,$insertSQL);
+  $mpdf = new \Mpdf\Mpdf();
+  $mpdf->WriteHTML($file);     
+  $mpdf->Output("$newfile", \Mpdf\Output\Destination::FILE);
+  $mpdf->Output("$newfile", \Mpdf\Output\Destination::INLINE);
   if($insertQuery){
     //Drop table
     $delTable="DELETE FROM `invoice_hmt`";
     $deleteQuery=mysqli_query($connection,$delTable);
-    if($deleteQuery){
-      $mpdf = new \Mpdf\Mpdf();
-      $mpdf->WriteHTML($file);     
-      $mpdf->Output("$newfile", \Mpdf\Output\Destination::FILE);
-      $mpdf->Output("$newfile", \Mpdf\Output\Destination::INLINE);
-    }
+  
+  }else{
+    echo"<script>console.log('query failed + $tolQty')</script>";
   }
 
  
