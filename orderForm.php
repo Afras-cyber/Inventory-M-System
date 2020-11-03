@@ -96,7 +96,7 @@
         <button class="btn btn-lg btn-submit" id="emptyTable" type="button">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
         <button class="btn btn-lg btn-submit" type="submit">Sent</button>
         <p><br /></p>
-        <a href="purchaseInfo.php"><h5>Order Invoice Information</h5></a>        
+        <a href="purchaseInfo.php" style='color:black'><h5>Order Invoice Information</h5></a>        
       </div>
     </form>
     </div>

@@ -141,6 +141,3 @@ $(document).ready(function () {
     })
 
 })
-// 2VM2255 find.js:38
-// {"item_qid":"12","item_id":"URL434234","item_name":"","category":"","qty":"0","description":"","buy":"0","sell":"0"}
-

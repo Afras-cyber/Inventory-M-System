@@ -56,22 +56,28 @@ if (isset($_POST["submit"])) {
     <div class="add-item-form box2">
         <div class="container-fluid">
             <div class="row">
+            <div id="message"></div>
                 <div class="col-7 table2">
-                    <form action="update-Item.php" method="POST">
+                    <form id="form" method="POST">
                         <div>
                             <div class="row">
                                 <div class="col-3"><label class="label">Item No</label></div>
-                                <div class="col-3"><input type="text" name="item_no" class="input_invoice" placeholder="HCF0013" /></div>
+                                <div class="col-3"><input type="text" autocomplete="off" id='item_no' name="item_no" class="input_invoice" placeholder="HCF0013" /></div>
+                            </div>
+                            <p><br /></p>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-3"><div id='list_item'></div></div>
                             </div>
                             <p><br /></p>
                             <div class="row">
                                 <div class="col-3"><label class="label">Item Name</label></div>
-                                <div class="col-3"><input type="text" name="item_name" class="input_invoice" placeholder="Wall-hung Basin" />                             </div>
+                                <div class="col-3"><input type="text" id='item_name' name="item_name" class="input_invoice" placeholder="Wall-hung Basin" />                             </div>
                             </div>
                             <p><br /></p>
                             <div class="row">
                                 <div class="col-3"><label class="label">Category</label></div>
-                                <div class="col-3"><select id="cateory" name="category" class="input_invoice itm_input">
+                                <div class="col-3"><select  id='category' name="category" class="input_invoice itm_input">
                       <option value="">--Select--</option>
                       <?php
                         $catSQl="SELECT * FROM `category`";
@@ -93,18 +99,18 @@ if (isset($_POST["submit"])) {
                             <p><br /></p>
                             <div class="row">
                                 <div class="col-3"><label class="label">Quantity</label></div>
-                                <div class="col-3"><input type="number" name="qty" class="input_invoice" placeholder="Quantity" /></div>
+                                <div class="col-3"><input type="number" id='qty' name="qty" class="input_invoice" placeholder="Quantity" /></div>
                             </div>
                             <p><br /></p>
                             <div class="row">
                                 <div class="col-3"><label class="label">Reason</label></div>
-                                <div class="col-6"><textarea name="reason" id="" cols="70" rows="15" class="textarea_invoice"></textarea></div>
+                                <div class="col-6"><textarea name="reason" id="reason" cols="70" rows="15" class="textarea_invoice"></textarea></div>
                             </div>
                             <p><br /></p>
                             <div class="set-right">
                                 <button class="btn btn-lg btn-submit" type="rest">
                                     Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-lg btn-submit" type="submit" name="submit">
+                                <button class="btn btn-lg btn-submit" id='addItem' type="submit" name="submit">
                                     Add
                                 </button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -156,6 +162,6 @@ if (isset($_POST["submit"])) {
     <p><br /></p>
     <p><br /></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/supplier.js"></script>
+<script src="js/return.js"></script>
 </body>
 </html>

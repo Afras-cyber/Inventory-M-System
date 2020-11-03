@@ -19,6 +19,8 @@
 tbody {
     min-width: 100%;
     min-height: 80vh;
+    max-height: 100vh;
+    overflow-y: scroll;
     background-color: #C4C4C4;
     display: inline-block;
     border-left: 0px solid black;

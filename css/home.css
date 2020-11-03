@@ -205,3 +205,6 @@ td {
     display: flex;
     margin-left: 70%;
 }
+.set-right{
+    float: right;
+}

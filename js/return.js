@@ -1,0 +1,78 @@
+
+$(document).ready(function () {
+  
+    $('#item_no').keyup(function () {
+        var query = $(this).val();
+    
+        if (query != '') {
+           
+            $.ajax({
+                url: 'Action/returnAction.php',
+                type: 'POST',
+                data: { item_select: query },
+                success: function (data) {
+                    $('#list_item').fadeIn();
+                    $('#list_item').html(data);
+                   
+                }
+            })
+        } else {
+           
+            $('#list_item').fadeOut();
+            $('#list_item').html("");
+        }
+    })
+    $(window).click(function () {
+        $('#list_item').fadeOut();
+    });
+    $(document).on('click', 'li', function () {
+        $('#item_no').val($(this).text());
+        $('#list_item').fadeOut();
+         console.log("Item Selected")
+
+        var id = $('#item_no').val();
+      
+        $.ajax({
+            method: 'POST',
+            url: 'Action/returnAction.php',
+            data: {
+                returnItem_id: id
+            },
+            success: function (responseObject) {
+                console.log("Item data recevied success")
+                var obj = JSON.parse(responseObject);
+                $('#item_name').val(obj.item_name);
+            },
+            failure: function () {
+                console.log('Item fetch Failed')
+               
+            }
+        });
+    })
+
+   
+
+    $('#addItem').click(function (e) {
+        e.preventDefault();
+        if ($('#item_no').val().trim() === "" ||
+            $('#item_name').val().trim() === "" ||
+            $('#category').val().trim() === "" ||
+            $('#qty').val().trim() === "" ||
+            $('#reason').val().trim() === "" 
+     ) {
+        // $("#addItem").attr("disabled", true);
+        alert('Input field are empty')
+        } else {
+           console.log('btn click');
+            $.ajax({
+                method: 'POST',
+                url: 'Action/returnAdd.php',
+                data: $('#form').serialize(),
+                success: function (data) {                    
+                        $('#message').html(data);                    
+                }
+            })
+        }
+    })    
+})
+

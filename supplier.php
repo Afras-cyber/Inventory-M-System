@@ -110,8 +110,8 @@
                             $sh_sup_uid         =$row['sup_uid'];
                             $sh_sup_name        =$row['sup_name'];                      
                             $sh_contect_no      =$row['contect_no'];
-                            $sh_address1         =$row['address'];
-                            $sh_address2         =$row['address2'];
+                            $sh_address1        =$row['address'];
+                            $sh_address2        =$row['address2'];
                             $sh_email           =$row['email'];
                             $sh_address         =$sh_address1." ".$sh_address2;
                         
