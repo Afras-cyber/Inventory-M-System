@@ -132,7 +132,7 @@ $(document).ready(function () {
     console.log("enter button work");
 
     if ($('#item_no').val().trim() == "" || 
-    $('#discount').val().trim() == "" || 
+       $('#discount').val().trim() == "" || 
         $('#itm_name').val().trim() == "" || 
         $('#itm_qty').val().trim() == "" || 
         $('#item_price').val().trim() == "" ||

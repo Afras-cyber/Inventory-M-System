@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,27 +28,28 @@
     </div><br />
   </div>
   <div class="container-fluid sale-for-sale">
+  <div id="orderMSG"></div>
 
-    <form action="">
+    <form method="POST" id="orderForm">
       <h1 id="sale_INVOICE"> Order Invoice</h2><br>
         <div class="row ">
-          <div class="col-3"><label class="label">Item No</label><input type="text" class="input_invoice" name="itm-no">
+          <div class="col-3"><label class="label">Item No</label><input type="text" id="itm_no"  class="input_invoice" name="itm_no">
           </div>
-          <div class="col-3"><label class="label">Item Name</label><input type="text" class="input_invoice"
-              name="itm-name"></div>
-          <div class="col-3"><label class="label">Qty</label><input type="number" class="input_invoice" name="qty">
+          <div class="col-3"><label class="label">Item Name</label><input type="text" id="itm_name" class="input_invoice"
+              name="itm_name"></div>
+          <div class="col-3"><label class="label">Qty</label><input type="number" id="qty" class="input_invoice" name="qty">
           </div>
-          <div class="col-3"><label class="label">Price</label><input type="number" class="input_invoice" name="price">
+          <div class="col-3"><label class="label">Price</label><input type="number" id="price" class="input_invoice" name="price">
           </div>
         </div>
         <br>
         <div class="row">
-          <div class="col-4"><label class="label">Supplier Name</label><input type="number" class="input_invoice"
-              name="cust_name"></div>
-          <div class="col-4"><label class="label">Supplier ID</label><input type="number" class="input_invoice"
-              name="cust_id"></div>
+          <div class="col-4"><label class="label">Supplier Name</label><input type="text" id="sup_name" class="input_invoice"
+              name="sup_name"></div>
+          <div class="col-4"><label class="label">Supplier Email</label><input type="email" id="sup_email" class="input_invoice"
+              name="sup_email"></div>
           <div class="col-1"></div>
-          <div class="col-1"><input type="submit" class="btn btn-lg btn-submit" value="Enter"></div>
+          <div class="col-1"><input type="button" id="addOrder" class="btn btn-lg btn-submit" value="Enter"></div>
         </div>
 
     </form>
@@ -101,7 +101,8 @@
     <p><br /></p>
     <p><br /></p>
     <p><br /></p>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/order.js"></script>     
 
   </div>
 </body>

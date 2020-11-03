@@ -2,17 +2,16 @@
     include('../inc/connection.php');
       
 
-$item_no = $_POST['itm_no'];
-$item_name = $_POST['itm_name'];
-$qty = $_POST['qty'];
-$price = $_POST['price'];
-$cust_name = $_POST['cust_name'];
-$cust_email = $_POST['custEmail'];
-$discount = $_POST['discount'];
-$value=(float)$price-(float)$discount;
-$changeInQty= (int)$qty;
-
-
+    $item_no        = $_POST['itm_no'];
+    $item_name      = $_POST['itm_name'];
+    $qty            = $_POST['qty'];
+    $price          = $_POST['price'];
+    $cust_name      = $_POST['cust_name'];
+    $cust_email     = $_POST['custEmail'];
+    $discount       = $_POST['discount'];
+    $value          =(float)$price-(float)$discount;
+    $changeInQty    = (int)$qty;
+    
 //--------------------------------------------------------
 $name="/^[a-zA-Z ]*$/";
 
