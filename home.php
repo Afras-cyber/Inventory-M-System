@@ -49,6 +49,7 @@
                         <li><a href="salesInfo.php">Sales</a></li>
                         <li><a href="purchaseInfo.php">Purchase</a></li>
                         <li><a href="return_item.php">Returned Items</a></li>
+                        <li><a href="logout.php">LogOut</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,23 +65,8 @@
                 </div>
                 <div class="bottom-banner">
                     <div class="container">
-                        <div class="list-order"><?php
-                        $cat_sql="SELECT * FROM `category`";                       
-                        $cat_query=mysqli_query($connection,$cat_sql);
-                        if($cat_query){
-                            $cat_count=mysqli_num_rows($cat_query);
-                            if($cat_count>0){
-                                while($row=mysqli_fetch_assoc($cat_query)){
-                                    $cat_name = $row['cat_name'];
-                                    echo "<button class='btn btn-lg btn-item'>{$cat_name}</button>";
-                                }
-                            }else{
-                            echo"<script>console.log('Table is empty'</script>";
-                        }
-                        }else{
-                            echo"<script>console.log('fail to connect'</script>";
-                        }                        
-                        ?>
+                        <div class="list-order">
+                            <div id='showCat'></div>
                             <button class="btn btn-lg btn-item" id="add-item" data-toggle="modal"
                                 data-target="#exampleModal">+</button>
                             <!-- add category -->
@@ -100,7 +86,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div>
-                                                <form action="action.php" method="post">
+                                                <form id="catForm" method="post">
                                                     <span class="text-sm"><i>Category Name</i></span><br>
                                                     <input autocomplete="off" name="newCategory" id="newCategory"
                                                         type="text" placeholder="Shower.." class="form-control"
@@ -111,7 +97,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Close</button>
-                                            <button type="submit" name="submit_category1"
+                                            <button type="button" name="submit_category1" id='addCat'
                                                 style="background: #EE6342;border:0px solid #EE6342;"
                                                 class="btn btn-primary">Add Category</button> </form>
                                         </div>

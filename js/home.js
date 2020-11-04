@@ -28,7 +28,7 @@ window.onclick = function (event) {
 $(document).ready(function () {
 
   showRows();
-
+  showCategory();
  
 
 
@@ -157,21 +157,21 @@ $(document).ready(function () {
       })
     }
   })
-
+  
   $('body').delegate('#rm_list','click',function(e){
-       e.preventDefault();  
-       var tid = $(this).attr('tid');     
-       $.ajax({
-         method: 'POST',
-         url: 'Action/action.php',
-         data: { rm_list:1,tid:tid },
-         success: function (data) {
-           $('#message01').html(data);
-           showRows();
-         }
-       })
-     })
-   
+    e.preventDefault();  
+    var tid = $(this).attr('tid');     
+    $.ajax({
+      method: 'POST',
+      url: 'Action/action.php',
+      data: { rm_list:1,tid:tid },
+      success: function (data) {
+        $('#message01').html(data);
+        showRows();
+      }
+    })
+  })
+  
   
   function showRows(){
     
@@ -185,6 +185,7 @@ $(document).ready(function () {
       }
     })
   }
+
   function showTotal(){
     $.ajax({
       method: 'POST',
@@ -209,5 +210,58 @@ $(document).ready(function () {
       }
     })
   })
+
+   $('body').delegate('#delCate','click',function(e){
+     e.preventDefault(); 
+     var cid = $(this).attr('cid');     
+     $.ajax({
+       method: 'POST',
+       url: 'Action/action.php',
+       data: { delCate:1,cid:cid },
+       success: function (data) {
+         $('#showCat').html(data);
+       showCategory();
+       }
+     })
+   })
+                                        
+  function showCategory(){    
+    $.ajax({
+      method: 'POST',
+      url: 'Action/action.php',
+      data: { showCategory: 1 },
+      success: function (data) {
+        $('#showCat').html(data);
+       
+      }
+    })
+  }
  
+  $('body').delegate('#addCat','click',function(e){
+    e.preventDefault();
+    console.log("enter button work");
+
+    if (
+        $('#newCategory').val().trim() == ""  
+          
+    ) {
+     alert('Input field are empty')
+    }
+     else {
+      console.log('its  not empty')
+      $.ajax({
+        method: 'POST',
+        url: 'Action/addCat.php',
+        data: $('#catForm').serialize(),
+        success: function (data) {       
+          showRows();
+          $('.modal-body').html(data);
+          $('#newCategory').val("");
+          showCategory();         
+          location.reload();
+             }
+      })
+    }
+  })
+
 });

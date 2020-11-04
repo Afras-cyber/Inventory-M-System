@@ -131,36 +131,7 @@ if(isset($_POST['supplier_delete'])){
 } 
 //-------------------------------------------------------------------------//
   
-if(isset($_POST['submit_category1']))  {
-  echo"<script>alert('if not working')</script>";
-  $newCatgory = $_POST['newCategory'];
-
-  $findCat="SELECT * FROM `category` WHERE `cat_name`='$newCatgory'";
-  $findQuery=mysqli_query($connection,$findCat);
-  if($findQuery){
-      $catFound=mysqli_num_rows($findQuery);
-      if($catFound===0){
-          $catInsetSql="INSERT INTO `category`(`cat_name`) VALUES ('$newCatgory')";
-          $insertCatQuery=mysqli_query($connection,$catInsetSql);
-          if($insertCatQuery){
-              echo"<script>console.log('new Category added ',$newCatgory)</script>";
-              echo"<script>document.getElementById('newCategory').value = ''</script>";
-              header("Location: home.php");
-exit();
-          }else{
-              echo"<script>console.log('Categroy Insert Failed')</script>";
-              header("Location: home.php");
-              exit();
-          }
-
-      }else{
-          echo"<script>document.getElementById('newCategory').value = ''</script>";
-          header("Location: home.php");
-          echo"<script>alert('Item already added')</script>";
-          exit();
-      }
-  }
-}  
+ 
 if(isset($_POST['rm_list'])){
   $tid = $_POST['tid'];
   //get qty value from home page temp table
@@ -453,4 +424,36 @@ if(isset($_POST['rmFromSales'])){
   echo"<script>console.log('item removed failed')</script>";     
    }
 }
+//-----------------------------------------delCate--------------------------------------------
+if(isset($_POST['delCate'])){
+  $cid=$_POST['cid'];
+  $catSql="DELETE FROM `category` WHERE `cat_id`='$cid'";
+  $catQuery=mysqli_query($connection,$catSql);
+  if($catQuery){
+      echo"<script>console.log('item removed')</script>";     
+   }else{
+  echo"<script>console.log('item removed failed')</script>";     
+   }
+}
+//----------------------------------showCategory-------------------------------------------
+if(isset($_POST['showCategory'])){
+  $cat_sql="SELECT * FROM `category`";                       
+  $cat_query=mysqli_query($connection,$cat_sql);
+  if($cat_query){
+      $cat_count=mysqli_num_rows($cat_query);
+      if($cat_count>0){
+          while($row=mysqli_fetch_assoc($cat_query)){
+              $cat_name = $row['cat_name'];
+              $cat_id= $row['cat_id'];
+              echo "<button class='btn btn-lg btn-item'>{$cat_name}
+              &nbsp;<i id='delCate' cid='$cat_id' class='fas fa-minus-circle'></i></button>";
+          }
+      }else{
+      echo"<script>console.log('Table is empty'</script>";
+  }
+  }else{
+      echo"<script>console.log('fail to connect'</script>";
+  }  
+}
+
 ?>

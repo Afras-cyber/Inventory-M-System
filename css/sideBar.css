@@ -14,7 +14,24 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
- 
+ #delCate{  
+   cursor: pointer;
+   background-color: #C4C4C4;
+   color: #C4C4C4;
+   width:1px;
+   height: 1px;
+ }
+ #delCate:hover{
+ color:white;
+ width:5px;
+ height: 5px;
+}
+
+ /* #delCate:hover{
+  visibility: visible;
+  cursor: pointer;
+ } */
+
   .sidebar {
   
   float: right;
