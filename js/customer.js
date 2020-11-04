@@ -21,7 +21,9 @@ $(document).ready(function () {
             $('#list_item').html("");
         }
     })
-
+    $(window).click(function () {
+        $('#list_item').fadeOut();
+    });
     $(document).on('click', 'li', function () {
         $('#cust_uid').val($(this).text());
         $('#list_item').fadeOut();

@@ -146,6 +146,7 @@ $(document).ready(function () {
         url: 'Action/hm_action.php',
         data: $('#form_invoice').serialize(),
         success: function (data) {
+          $("#printDoc").attr("disabled", false);
           showRows();
           $('#message01').html(data);
           $('#item_no').val("");
@@ -203,6 +204,7 @@ $(document).ready(function () {
       data: { clearAllTable:1},
       success: function (data) {
         $('#message01').html(data);
+        $("#printDoc").attr("disabled", true);
         showRows();
       }
     })

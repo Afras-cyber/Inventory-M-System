@@ -67,7 +67,8 @@ $(document).ready(function () {
             method: 'POST',
             url: 'Action/order_add.php',
             data: $('#orderForm').serialize(),
-            success: function (data) {              
+            success: function (data) {    
+              $("#sendMail").attr("disabled", false);          
               $('#orderMSG').html(data); 
               showRows(); 
               $('#itm_no').val("")  
@@ -112,6 +113,7 @@ $(document).ready(function () {
       data: { emptyTable:1 },
       success: function (data) {
         $('#orderMSG').html(data); 
+        $("#sendMail").attr("disabled", true);
         showRows();   
       }
     })
