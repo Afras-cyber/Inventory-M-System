@@ -1,8 +1,5 @@
 <?php
-    //importing conection file
-    include('inc/connection.php');
-  
-
+  include('inc/connection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,9 @@
 <?php
     include('inc/connection.php');
+    session_start();
+if(!isset($_SESSION['email'])){   
+	header('location:index.php');
+}
    
 ?>
 <!DOCTYPE html>
@@ -105,6 +109,7 @@
                   </div>
                   <div class="col-6">
                     <textarea
+                    style="color:black"
                       name="description"
                       id="desc"
                       cols="70"

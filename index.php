@@ -75,7 +75,7 @@
                                     <div class="row">
                                         <div class="col-3"><label class="label">Email</label></div>
                                         <div class="col-3">
-                                            <input autocomplete="off" type="email" name="ch_email"
+                                            <input  type="email" name="ch_email"
                                                 class="input_invoice emiy checkUser" placeholder="abc@gmail.com"
                                                 required />
                                         </div>

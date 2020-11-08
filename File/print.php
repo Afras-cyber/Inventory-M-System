@@ -1,6 +1,6 @@
 <?php
  include('../inc/connection.php');
-//  if(isset($_POST['printDoc'])){
+
     require_once 'C:\xampp\htdocs\Inventory-M-System'. '/vendor/autoload.php';
   
     $sql1="SELECT * FROM `invoice_hmt` WHERE 1";

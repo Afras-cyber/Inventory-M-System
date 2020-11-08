@@ -7,7 +7,7 @@
     $email1     =$_POST['emailed'];
     $pass       =$_POST['pass'];
     $pass2      =$_POST['pass2'];
- 
+    $securePWD  =md5($pass);
     $name="/^[a-zA-Z ]*$/";
 	$emailValidatiaon="/^[_a-z0-9-]+(\.[_a-z0-9-])*@[a-z0-9]+(\.[a-z]{2.4})$/";
 	$number ="/^[0-9]+$/";
@@ -68,7 +68,7 @@ if(!(strlen($contect) <10 && !strlen($contect)>10)){
                  exit();
             }else{
                 $sql="INSERT INTO `admin` (`admin_id`, `user_id`, `fullname`, `contect`, `email`, `password`) 
-                                         VALUES (NULL, '$user_id1', '$fullname', '$contect', '$email1', '$pass')";
+                                         VALUES (NULL, '$user_id1', '$fullname', '$contect', '$email1', '$securePWD')";
                 
                 $query=mysqli_query($connection,$sql);
                 if ($query) {

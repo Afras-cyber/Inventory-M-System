@@ -44,6 +44,7 @@
                   if($undoRow = mysqli_fetch_assoc($undoQuery)){
                       $valueOF =$undoRow['MAX(`return_id`)'];                   
                       $_SESSION['undo_id']=$valueOF;                 
+                      echo "<script>window.location.reload()</script>";
                   }else{
                     echo "<script>console.log('unto fetch')</script>";
                   }
@@ -51,7 +52,6 @@
                  
                     echo "<script>console.log('unto query')</script>";
                  }
-             echo "<script>window.location.reload()</script>";
           }
           }
                               }

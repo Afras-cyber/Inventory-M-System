@@ -1,10 +1,12 @@
 <?php
 include('../inc/connection.php');
+session_start();
 
   
     
       $email =$_POST['email'];
       $pwd = $_POST['password'];
+      $securePWD= md5($pwd);
                 
           if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
               $emailErr = "Invalid email format";
@@ -17,7 +19,9 @@ include('../inc/connection.php');
                 if(mysqli_num_rows($query)>0){
                     if($row1=mysqli_fetch_assoc($query)){
                         $passwordCheck=$row1['password'] ;
-                        if($pwd ==$passwordCheck){
+                        
+                        if($securePWD ==$passwordCheck){
+                            $_SESSION['email']=$email;
                             echo "<script>window.location.href = 'home.php'</script>";
                         } else{
                             $nameErr = "Password Invalid";

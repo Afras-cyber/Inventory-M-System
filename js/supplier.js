@@ -1,11 +1,15 @@
 
 $(document).ready(function(){
+    $("#deleteSupplier").attr("disabled", true);
+    $("#sup_editBtn").attr("disabled", true);
  
     $('#sup_uid').keyup(function(){
         var query = $(this).val();   
         
         if(query != ''){
             $("#sup_addBtn").attr("disabled", false);
+            $("#deleteSupplier").attr("disabled", true);
+            $("#sup_editBtn").attr("disabled", true);
             $.ajax({
                 url:'Action/action.php',
                 type:'POST',
@@ -17,6 +21,8 @@ $(document).ready(function(){
             })
         }else{
             $("#sup_addBtn").attr("disabled", false);
+            $("#deleteSupplier").attr("disabled", true);
+            $("#sup_editBtn").attr("disabled", true);
                      $('#list_supplier').fadeOut();
                      $('#list_supplier').html("");
         }
@@ -32,6 +38,8 @@ $(document).ready(function(){
       
          var id = $('#sup_uid').val();
          $("#sup_addBtn").attr("disabled", true);
+         $("#deleteSupplier").attr("disabled", false);
+         $("#sup_editBtn").attr("disabled", false);
                 $.ajax({
                     method: 'POST',
                     url: 'Action/action.php',
@@ -58,6 +66,8 @@ $(document).ready(function(){
                     failure: function() {
                        console.log('Supplier details recevie Failed')
                        $("#sup_addBtn").attr("disabled", false);
+                       $("#deleteSupplier").attr("disabled", true);
+                       $("#sup_editBtn").attr("disabled", true);
                     }
                 });       
            

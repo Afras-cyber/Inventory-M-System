@@ -1,10 +1,14 @@
 
 $(document).ready(function () {
+    $("#deleteCustomer").attr("disabled", true);
+    $("#custEditBtn").attr("disabled", true);
 
     $('#cust_uid').keyup(function () {
         var query = $(this).val();
 
         if (query != '') {
+            $("#deleteCustomer").attr("disabled", true);
+            $("#custEditBtn").attr("disabled", true);
             $("#custAddBtn").attr("disabled", false);
             $.ajax({
                 url: 'Action/action.php',
@@ -17,6 +21,8 @@ $(document).ready(function () {
             })
         } else {
             $("#custAddBtn").attr("disabled", false);
+            $("#deleteCustomer").attr("disabled", true);
+            $("#custEditBtn").attr("disabled", true);
             $('#list_item').fadeOut();
             $('#list_item').html("");
         }
@@ -32,6 +38,8 @@ $(document).ready(function () {
 
         var id = $('#cust_uid').val();
         $("#custAddBtn").attr("disabled", true);
+        $("#deleteCustomer").attr("disabled", false);
+        $("#custEditBtn").attr("disabled", false);
         $.ajax({
             method: 'POST',
             url: 'Action/action.php',

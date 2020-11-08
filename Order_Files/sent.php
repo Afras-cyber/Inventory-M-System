@@ -10,8 +10,7 @@ use PHPMailer\PHPMailer\SMTP;
     $sqlQuery1=mysqli_query($connection,$sql1);
     if($sqlQuery1){
       $qry_count1=mysqli_num_rows($sqlQuery1);
-      if($qry_count1>0){  
-        //
+      if($qry_count1>0){         
           $file_ex  = 'ORD.pdf';
           $ch = strtolower($file_ex);
           $newfile = time().'.'.$ch;   
@@ -123,12 +122,12 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = 2;                      // Enable verbose debug output
+    $mail->SMTPDebug = false;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = "afras975@gmail.com";                     // SMTP username
-    $mail->Password   = "Keg@2404265@";                               // SMTP password
+    $mail->Username   = "your-email-address";                     // SMTP username
+    $mail->Password   = "your-email-Password";                              // SMTP password
     $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587  ;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -136,6 +135,8 @@ try {
     $mail->setFrom("$sup_email", 'Mailer');
     $mail->addAddress("$sup_email", 'Joe User');     // Add a recipient
    
+    //Atteachment
+    $mail->addStringAttachment($pdf,$newfile);
 
   
     // Content
@@ -149,19 +150,18 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-
-      
-       
-        if($insertQuery){
+    if($insertQuery){
           //Drop table
           $delTable="DELETE FROM `ordertb`";
           $deleteQuery=mysqli_query($connection,$delTable);
-        
-        }else{
+          if($deleteQuery){
+            echo"<script>window.location.href = '../orderForm.php';</script>";            
+            exit;
+          }        
+          }else{
           echo"<script>console.log('query failed + $tolQty')</script>";
         }
-
-        }else{
+    }else{
           echo "<script>window.location.href = '../orderForm.php'</script>";
 
           echo "<script>alert('please order some item and try again')</script>";
