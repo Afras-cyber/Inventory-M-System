@@ -1,26 +1,6 @@
 <?php
     include('inc/connection.php');
-//     echo "<script>console.log('before submit')</script>";
-// if (isset($_POST["submit"])) {
-//     echo "<script>console.log('after submit')</script>";
-//         $no         =$_POST['item_no'];
-//         $name       =$_POST['item_name'];
-//         $category   =$_POST['category'];
-//         $qty        =$_POST['qty'];
-//         $reason     =$_POST['reason'];
-              
-    
-//         $sql="INSERT INTO `return_item` (`return_id`, `item_uid`, `item_name`, `category`, `qty`, `reason`, `date_time`, `item_id`) 
-//         VALUES (NULL, '$no', '$name', '$category', '$qty','$reason', current_timestamp(), NULL);";
-//         $check_query=mysqli_query($connection, $sql);
-//             if ($check_query) {
-//                 echo "<script>console.log('query succesfully inserted')</script>";
-//             } else {
-//                 echo "<script>console.log('query insert failed')</script>";
-//             }
-// }
-
-
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +94,7 @@
                                     Add
                                 </button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-lg btn-submit">Undo</button>
+                                <button class="btn btn-lg btn-submit" id="undo_recover" undo='<?php if(isset($_SESSION['undo_id'])){echo $_SESSION['undo_id'];}?>'>Undo</button>
                             </div>
                         </div>
                     </form>
@@ -162,6 +142,7 @@
     <p><br /></p>
     <p><br /></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>console.log()</script>
 <script src="js/return.js"></script>
 </body>
 </html>

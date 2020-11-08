@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    showUndo();
   
     $('#item_no').keyup(function () {
         var query = $(this).val();
@@ -73,6 +74,30 @@ $(document).ready(function () {
                 }
             })
         }
-    })    
+    })   
+    
+    $('body').delegate('#undo_recover','click',function(e){
+        e.preventDefault(); 
+        var undo = $(this).attr('undo');  
+        
+            $.ajax({
+              method: 'POST',
+              url: 'Action/action.php',
+              data: { delCate:1,undo:undo},
+              success: function (data) {
+                $('#showCat').html(data);
+              showCategory();
+              }
+            })            
+        
+      })
+       function showUndo(){
+        if ( $('#undo_recover').attr('undo') == '' ) {
+            $("#undo_recover").attr("disabled", true);
+        } else {
+            $("#undo_recover").attr("disabled", false);
+        }
+       }  
+    
 })
 

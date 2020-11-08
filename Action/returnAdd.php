@@ -1,5 +1,6 @@
 <?php
   include('../inc/connection.php');
+  session_start();
      
        $item_no     =   $_POST['item_no'];
        $item_name   =   $_POST['item_name'];
@@ -21,6 +22,7 @@
     if(mysqli_num_rows($qryForGetqty)>0){
       if($rty = mysqli_fetch_assoc($qryForGetqty)){
         $ry= $rty['qty'];
+        
         echo "<script>console.log('check point 4')</script>";
         $updateQry= (int)$ry+(int)$qty;                              
         //update qty value item table
@@ -35,6 +37,8 @@
                VALUES (NULL, '$item_no', '$item_name', '$category', '$qty', '$reason', current_timestamp(), NULL);";
                $check_query=mysqli_query($connection,$sql);
                if($check_query){
+                 //get last update item id
+                 $_SESSION['undo_id']="$item_no";
              echo "<script>window.location.reload()</script>";
           }
           }
