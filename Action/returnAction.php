@@ -24,4 +24,18 @@ if(isset($_POST['returnItem_id'])){
         print $formattedData;
     }
 }
+if(isset($_POST['undo_recover'])){   
+    $_id1=$_POST['undo'];
+    $sql_check1="SELECT * FROM `return_item` WHERE return_id = '$_id1' LIMIT 1";
+    $return1 = mysqli_query($connection,$sql_check1);
+    if($rows1 = mysqli_fetch_assoc($return1)){
+        $formattedData1 = json_encode($rows1);
+        $delUnto="DELETE FROM `return_item` WHERE `return_id`='$_id1'";
+        $delQuery=mysqli_query($connection,$delUnto);
+        if($delQuery){
+            print $formattedData1;
+        }
+
+    }
+}
 ?>

@@ -84,7 +84,7 @@
                             <p><br /></p>
                             <div class="row">
                                 <div class="col-3"><label class="label">Reason</label></div>
-                                <div class="col-6"><textarea name="reason" id="reason" cols="70" rows="15" class="textarea_invoice"></textarea></div>
+                                <div class="col-6"><textarea style="color:black" name="reason" id="reason" cols="70" rows="15" class="textarea_invoice"></textarea></div>
                             </div>
                             <p><br /></p>
                             <div class="set-right">

@@ -43,6 +43,7 @@ $(document).ready(function () {
                 console.log("Item data recevied success")
                 var obj = JSON.parse(responseObject);
                 $('#item_name').val(obj.item_name);
+                $('#category').val(obj.category);
             },
             failure: function () {
                 console.log('Item fetch Failed')
@@ -82,12 +83,18 @@ $(document).ready(function () {
         
             $.ajax({
               method: 'POST',
-              url: 'Action/action.php',
-              data: { delCate:1,undo:undo},
-              success: function (data) {
-                $('#showCat').html(data);
-              showCategory();
-              }
+              url: 'Action/returnAction.php',
+              data: { undo_recover:1,undo:undo},
+              success: function (responseObject1) {
+                console.log("Item data recevied success")
+                var obj1 = JSON.parse(responseObject1);
+                $('#item_no').val(obj1.item_uid);
+                $('#item_name').val(obj1.item_name);
+                $('#category').val(obj1.category);
+                $('#qty').val(obj1.qty);
+                $('#reason').val(obj1.reason);
+                $("#undo_recover").attr("disabled", true);
+            },
             })            
         
       })

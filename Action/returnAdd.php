@@ -38,7 +38,19 @@
                $check_query=mysqli_query($connection,$sql);
                if($check_query){
                  //get last update item id
-                 $_SESSION['undo_id']="$item_no";
+                 $undoSql="SELECT MAX(`return_id`) FROM `return_item`";
+                 $undoQuery=mysqli_query($connection,$undoSql);
+                 if($undoQuery){
+                  if($undoRow = mysqli_fetch_assoc($undoQuery)){
+                      $valueOF =$undoRow['MAX(`return_id`)'];                   
+                      $_SESSION['undo_id']=$valueOF;                 
+                  }else{
+                    echo "<script>console.log('unto fetch')</script>";
+                  }
+                 }else{
+                 
+                    echo "<script>console.log('unto query')</script>";
+                 }
              echo "<script>window.location.reload()</script>";
           }
           }
