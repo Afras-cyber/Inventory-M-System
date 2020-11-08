@@ -55,7 +55,7 @@ if(!isset($_SESSION['email'])){
                               <p><br /></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Supplier Name</label></div>
-                            <div class="col-8"><input type="text" id="sup_name"name="sup_name"class="input_invoice sup_in" placeholder="Wall hugn Basin" require /></div>
+                            <div class="col-8"><input type="text" id="sup_name"name="sup_name"class="input_invoice sup_in" placeholder="Jon" require /></div>
                         </div><p><br></p>
                         <div class="row">
                             <div class="col-3"><label class="label">Contect No</label></div>

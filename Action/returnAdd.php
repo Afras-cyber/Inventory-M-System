@@ -33,8 +33,8 @@
           $qtyEffect=mysqli_affected_rows($connection);//check How many Rows effected
           if ($qtyEffect==1) { 
             echo "<script>console.log('check point 1')</script>";
-               $sql="INSERT INTO `return_item` (`return_id`, `item_uid`, `item_name`, `category`, `qty`, `reason`, `date_time`, `item_id`) 
-               VALUES (NULL, '$item_no', '$item_name', '$category', '$qty', '$reason', current_timestamp(), NULL);";
+               $sql="INSERT INTO `return_item` (`return_id`, `item_uid`, `item_name`, `category`, `qty`, `reason`, `date_time`) 
+               VALUES (NULL, '$item_no', '$item_name', '$category', '$qty', '$reason', current_timestamp())";
                $check_query=mysqli_query($connection,$sql);
                if($check_query){
                  //get last update item id

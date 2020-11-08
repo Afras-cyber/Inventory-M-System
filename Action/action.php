@@ -439,21 +439,25 @@ if(isset($_POST['delCate'])){
 if(isset($_POST['showCategory'])){
   $cat_sql="SELECT * FROM `category`";                       
   $cat_query=mysqli_query($connection,$cat_sql);
+  $v="";
   if($cat_query){
       $cat_count=mysqli_num_rows($cat_query);
       if($cat_count>0){
           while($row=mysqli_fetch_assoc($cat_query)){
               $cat_name = $row['cat_name'];
               $cat_id= $row['cat_id'];
-              echo "<button class='btn btn-lg btn-item'>{$cat_name}
+              $v.= "<button class='btn btn-lg btn-item'>{$cat_name}
               &nbsp;<i id='delCate' cid='$cat_id' class='fas fa-minus-circle'></i></button>";
           }
       }else{
-      echo"<script>console.log('Table is empty'</script>";
+        $v.="<script>console.log('Table is empty'</script>";
   }
   }else{
-      echo"<script>console.log('fail to connect'</script>";
-  }  
+    $v.="<script>console.log('fail to connect'</script>";
+  } 
+  $v.=" <button class='btn  btn-item' id='add-item' data-toggle='modal'
+  data-target='#exampleModal'>+</button>";
+  echo $v;
 }
 
 ?>

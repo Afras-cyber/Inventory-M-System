@@ -1,7 +1,6 @@
 <?php
     include('inc/connection.php');
-     session_start(); 
-     
+     session_start();      
 if(!isset($_SESSION['email'])){   
 	header('location:index.php');
 }
@@ -71,8 +70,8 @@ if(!isset($_SESSION['email'])){
                     <div class="container">
                         <div class="list-order">
                             <div id='showCat'></div>
-                            <button class="btn btn-lg btn-item" id="add-item" data-toggle="modal"
-                                data-target="#exampleModal">+</button>
+                            <!-- <button class="btn  btn-item" id="add-item" data-toggle="modal"
+                                data-target="#exampleModal">+</button> -->
                             <!-- add category -->
 
                             <!-- Button trigger modal -->

@@ -55,7 +55,7 @@
                             <div class="row">
                                 <div class="col-3"><label class="label">Customer Name</label></div>
                                 <div class="col-8"><input type="text" id="cust_name" name="cust_name"
-                                        class="input_invoice custAdd" placeholder="Wall hugn Basin" require /></div>
+                                        class="input_invoice custAdd" placeholder="JOHN" require /></div>
                             </div>
                             <p><br></p>
                             <div class="row">
