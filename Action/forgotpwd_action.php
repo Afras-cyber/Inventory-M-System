@@ -5,6 +5,7 @@ include('../inc/connection.php');
     $ch_email      =$_POST['ch_email'];
     $ch_pass       =$_POST['ch_pass'];
     $ch_pass2      =$_POST['ch_pass2'];
+    $encrypt=md5($ch_pass);
     
     $name="/^[a-zA-Z ]*$/";
 	$emailValidatiaon="/^[_a-z0-9-]+(\.[_a-z0-9-])*@[a-z0-9]+(\.[a-z]{2.4})$/";
@@ -40,7 +41,7 @@ if(strlen($ch_pass)<4 && strlen($ch_pass2)<4 ){
         $checkUIDQuery=mysqli_query($connection,$checkUserID);    
         $count_user = mysqli_num_rows($checkUIDQuery);
         if($count_user>0){            
-                    $sql2="UPDATE `admin` SET `password`='$ch_pass' WHERE `email` ='$ch_email'";        
+                    $sql2="UPDATE `admin` SET `password`='$encrypt' WHERE `email` ='$ch_email'";        
                     $query=mysqli_query($connection,$sql2);
                     if($query){
                       $check_effect_row=mysqli_affected_rows($connection);//check How many Rows effected
