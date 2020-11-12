@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2020 at 12:19 PM
+-- Generation Time: Nov 12, 2020 at 07:48 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `user_id`, `fullname`, `contect`, `email`, `password`) VALUES
-(1, 'USER001', 'sam', '123456789', 'sam@gmail.com', 'e10adc3949ba59abbe56e057f20f883');
+(1, 'USER001', 'sam', '123456789', 'sam@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
